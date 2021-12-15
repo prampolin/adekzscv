@@ -3,12 +3,15 @@ import style from './style.module.sass'
 
 import { FiAlertTriangle } from 'react-icons/fi'
 
+import Menu from '../../components/menu'
+
 const delivery_report = () => {
 	return (
 		<>
 			<Head>
 				<title>Relatório de Entrega</title>
 			</Head>
+			<Menu />
 			<div className={style.delivery_report}>
 				<p className={style.title}>Incubatório de Avós</p>
 				<div className={style.card}>

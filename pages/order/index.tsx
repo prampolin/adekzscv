@@ -1,8 +1,9 @@
 import React from 'react'
-
 import Head from 'next/head'
 
 import style from './style.module.sass'
+
+import Menu from '../../components/menu'
 
 import Swal from 'sweetalert2'
 import { FiAlertTriangle, FiChevronDown, FiX } from 'react-icons/fi'
@@ -122,6 +123,8 @@ const order = () => {
 			</Head>
 
 			{timeToAlert()}
+
+			<Menu />
 
 			<div className={style.order}>
 				<p className={style.title}>Dados do Cliente</p>
