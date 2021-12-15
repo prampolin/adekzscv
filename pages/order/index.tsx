@@ -151,7 +151,7 @@ const order = () => {
 						<p>Cliente</p>
 						<Image src="/brazil.webp" width={30} height={20} />
 					</div>
-					<h2>AD'ORO</h2>
+					<h2>AD&#39;ORO</h2>
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Ordens</p>
