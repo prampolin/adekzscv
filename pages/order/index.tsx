@@ -138,9 +138,9 @@ const order = () => {
 				<div className={style.dataOrder}>
 					<p className={style.title}>Ordens</p>
 					<div className={style.card}>
-						{orders.map(o => {
+						{orders.map((o, i) => {
 							return (
-								<div className={style.content}>
+								<div className={style.content} key={i}>
 									<div className={style.item}>
 										<h4>Nº Ordem</h4>
 										<p>{o.number}</p>
