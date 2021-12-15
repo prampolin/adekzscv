@@ -1,0 +1,31 @@
+@import './main'
+	
+*
+	margin: 0
+	padding: 0
+	box-sizing: border-box
+
+body
+	font-family: 'Open Sans', sans-serif
+	color: $black
+	background: $black
+	font-weight: 300
+
+.smartphone
+	width: 375px
+	height: 812px
+	max-height: 98vh
+	margin: 1vh auto
+	background: $gray-50
+	border-radius: 1rem
+	overflow-y: auto
+
+.swal2-styled.swal2-confirm
+	background-color: #FF1C3D !important
+
+	&:focus
+		outline-style: none !important
+		box-shadow: none !important
+
+.swal2-popup 
+	max-width: 21rem !important

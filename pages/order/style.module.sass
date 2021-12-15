@@ -1,0 +1,202 @@
+@import '../../assets/sass/main'
+
+.order
+	padding: 1rem
+
+	.formGroup
+		display: block
+		width: 100%
+		margin-bottom: 0.8rem
+
+		label
+			display: block
+			font-size: 0.9rem
+			margin-bottom: 0.2rem
+			color: #0009
+
+		input,
+		select,
+		textarea
+			display: block
+			height: 2rem
+			width: 100%
+			padding: 0.1rem 0.7rem 0 0.7rem
+			border: 1px solid #0004
+			border-radius: 0.2rem
+			transition: all 0.3s ease-in-out
+
+			&:focus
+				border-color: #0006
+				outline-style: none
+
+		select
+			padding-left: 0.3rem
+			padding-top: 0
+
+	.title
+		color: $primary
+		margin: 1rem 0 0.5rem 0
+
+	.warning
+		width: 100%
+		display: block
+		border-radius: 0.5rem
+		padding: 1rem
+		background: $white
+		box-shadow: 0 3px 8px #0002
+
+	.dataClient
+		@include card()
+		padding-bottom: 0.5rem
+		margin-bottom: 1rem
+
+	.dataOrder
+
+		.card
+			@include card()
+			margin-bottom: 1rem
+			display: flex
+			flex-direction: column
+
+			.content
+				display: flex
+				flex-direction: row
+				flex-wrap: wrap
+				padding: 1rem
+				border: 1px solid $gray-50
+				margin-bottom: 1rem
+
+				&:last-child
+					margin-bottom: 0
+
+				.item
+					width: 40%
+
+					&:nth-child(odd),
+						width: 60%
+
+					&:nth-child(1),
+					&:nth-child(1)
+						margin-bottom: 1rem
+					
+					p
+						color: #0009
+
+	.salesConditions
+
+		.card
+			@include card()
+			margin-bottom: 1rem
+			display: flex
+			flex-direction: column
+
+			.content
+				padding: 1rem
+				border: 1px solid $gray-50
+				margin-bottom: 1rem
+
+				h4.header
+					width: 100%
+					display: block
+					margin-bottom: 1rem
+					text-transform: uppercase
+					font-weight: 600
+
+				.thead
+					display: flex
+					flex-direction: row
+					gap: 1rem
+
+					h4
+						width: 50%
+						font-size: 0.8rem
+						border: none
+						color: #0009
+				
+				.tbody
+					display: flex
+					flex-direction: row
+					gap: 1rem
+					padding-top: 0.5rem
+
+					p
+						width: 50%
+						font-weight: 600
+			
+			.off
+				display: flex
+				justify-content: space-between
+
+			.notice
+				padding: 0.8rem
+				border: 1px solid $gray-50
+				margin-top: 1rem
+
+				p
+					font-size: 0.75rem
+					text-align: center
+
+					svg
+						margin-right: 6px
+						margin-bottom: -1px
+
+	.services,
+	.vaccines
+		@include card()
+		position: relative
+
+		.accordion
+			margin-bottom: 2rem
+
+			&:last-child
+				margin-bottom: 0
+
+			button
+				width: 100%
+				border: none
+				color: $white
+				display: flex
+				justify-content: space-between
+				padding: 0.4rem 0.8rem
+				background: $primary
+				margin-bottom: 0.8rem
+				font-size: 1rem
+				cursor: pointer
+				border-radius: 4px
+
+			.item
+				display: flex
+				align-items: center
+				padding: 0.3rem
+				margin-bottom: 0.8rem
+
+				svg
+					margin-right: 0.6rem
+					color: #d7d7d7
+					stroke-width: 2px
+					font-size: 1.4rem
+
+				input
+					display: none
+
+				label
+					display: block
+					color: #888
+					cursor: pointer
+
+	.billing,
+	.delivery
+		@include card()
+		padding-bottom: 0.44rem
+
+	.btnPrimary
+		background: $primary
+		color: $white
+		display: block
+		width: 100%
+		margin: 1rem 0
+		border: none
+		border-radius: 0.5rem
+		height: 42px
+		text-transform: uppercase
+		font-weight: bold
