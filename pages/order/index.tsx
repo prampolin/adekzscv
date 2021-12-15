@@ -1,5 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
+import Image from 'next/image'
 
 import style from './style.module.sass'
 
@@ -129,14 +130,11 @@ const order = () => {
 			<div className={style.order}>
 				<p className={style.title}>Dados do Cliente</p>
 				<div className={style.dataClient}>
-					<div className={style.formGroup}>
-						<label htmlFor="client_name">Cliente</label>
-						<input type="text" id="client_name" value="AD'ORO" />
+					<div className={style.labelFlag}>
+						<p>Cliente</p>
+						<Image src="/brazil.webp" width={30} height={20} />
 					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="country">País</label>
-						<input type="text" id="country" value="Brasil" />
-					</div>
+					<h2>AD'ORO</h2>
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Ordens</p>

@@ -7,15 +7,20 @@ import { FiArrowLeft } from 'react-icons/fi'
 
 const Menu = () => {
 	return (
-		<div className={style.menu}>
-			<Link href="/">
-				<a>
-					<FiArrowLeft size={20} />
-				</a>
-			</Link>
-			<Image src="/logo.svg" width={60} height={40} />
-			<FiArrowLeft color="#FFF" />
-		</div>
+		<>
+			<div className={style.topo}>
+				<Image src="/topo.png" width={280} height={30} />
+			</div>
+			<div className={style.menu}>
+				<Link href="/">
+					<a>
+						<FiArrowLeft size={20} />
+					</a>
+				</Link>
+				<Image src="/logo.svg" width={60} height={40} />
+				<FiArrowLeft color="#FFF" />
+			</div>
+		</>
 	)
 }
 
