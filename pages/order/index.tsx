@@ -7,7 +7,12 @@ import style from './style.module.sass'
 import Menu from '../../components/menu'
 
 import Swal from 'sweetalert2'
-import { FiAlertTriangle, FiChevronDown, FiX } from 'react-icons/fi'
+import {
+	FiAlertTriangle,
+	FiChevronDown,
+	FiX,
+	FiCheckCircle,
+} from 'react-icons/fi'
 
 const order = () => {
 	const orders = [
@@ -30,54 +35,66 @@ const order = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'In Ovo',
+			title: 'In Ovo - 2 Selecionadas',
 			slug: 'inovo',
 			all: [
-				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)' },
-				{ id: 2, vaccine: 'BOUBA SUAVE' },
-				{ id: 3, vaccine: 'HVT' },
-				{ id: 4, vaccine: 'RISPENS' },
-				{ id: 5, vaccine: 'HVT+RISPENS' },
-				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)' },
-				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)' },
-				{ id: 8, vaccine: 'MB -1 (M.B)' },
-				{ id: 9, vaccine: 'HVT+SB1' },
-				{ id: 10, vaccine: 'TRANSMUNE GUMBORO (IBD)' },
-				{ id: 11, vaccine: 'VAXXITEK (HVT+IBD)' },
-				{ id: 12, vaccine: 'VECTORMUNE HVT LT (HVT+LT)' },
-				{ id: 13, vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)' },
+				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
+				{ id: 2, vaccine: 'BOUBA SUAVE', check: false },
+				{ id: 3, vaccine: 'HVT', check: false },
+				{ id: 4, vaccine: 'RISPENS', check: false },
+				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
+				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: true },
+				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
+				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
+				{ id: 9, vaccine: 'HVT+SB1', check: false },
+				{ id: 10, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: true },
+				{ id: 11, vaccine: 'VAXXITEK (HVT+IBD)', check: false },
+				{ id: 12, vaccine: 'VECTORMUNE HVT LT (HVT+LT)', check: false },
+				{
+					id: 13,
+					vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)',
+					check: false,
+				},
 			],
 		},
 		{
 			id: 2,
-			title: 'Subcutânea',
+			title: 'Subcutânea - 1 Selecionada',
 			slug: 'subcutanea',
 			all: [
-				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)' },
-				{ id: 2, vaccine: 'BOUBA SUAVE' },
-				{ id: 3, vaccine: 'HVT' },
-				{ id: 4, vaccine: 'RISPENS' },
-				{ id: 5, vaccine: 'HVT+RISPENS' },
-				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)' },
-				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)' },
-				{ id: 8, vaccine: 'MB -1 (M.B)' },
-				{ id: 9, vaccine: 'NOBILIS REO 2177 (REOVIRUS AVIARIO)' },
-				{ id: 10, vaccine: 'HVT+SB1' },
-				{ id: 11, vaccine: 'TRANSMUNE GUMBORO (IBD)' },
-				{ id: 12, vaccine: 'VAXXITEK (HVT+IBD)' },
-				{ id: 13, vaccine: 'VECTORMUNE HVT LT (HVT+LT)' },
-				{ id: 14, vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)' },
+				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
+				{ id: 2, vaccine: 'BOUBA SUAVE', check: false },
+				{ id: 3, vaccine: 'HVT', check: false },
+				{ id: 4, vaccine: 'RISPENS', check: false },
+				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
+				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
+				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: true },
+				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
+				{
+					id: 9,
+					vaccine: 'NOBILIS REO 2177 (REOVIRUS AVIARIO)',
+					check: false,
+				},
+				{ id: 10, vaccine: 'HVT+SB1', check: false },
+				{ id: 11, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: false },
+				{ id: 12, vaccine: 'VAXXITEK (HVT+IBD)', check: false },
+				{ id: 13, vaccine: 'VECTORMUNE HVT LT (HVT+LT)', check: false },
+				{
+					id: 14,
+					vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)',
+					check: false,
+				},
 			],
 		},
 		{
 			id: 3,
-			title: 'Spray',
+			title: 'Spray - 1 Selecionada',
 			slug: 'spray',
 			all: [
-				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE' },
-				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)' },
-				{ id: 3, vaccine: 'FLORAMAX B11 (PROBIÓTICO)' },
-				{ id: 4, vaccine: 'POULTRYSTAR (PROBIÓTICO)' },
+				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: false },
+				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: true },
+				{ id: 3, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: false },
+				{ id: 4, vaccine: 'POULTRYSTAR (PROBIÓTICO)', check: false },
 			],
 		},
 	]
@@ -221,16 +238,37 @@ const order = () => {
 									{v.title} <FiChevronDown />
 								</button>
 								{v.all?.map(e => {
-									return (
+									return e.check === true ? (
+										<div
+											className={style.itemActive}
+											key={v.slug + '_' + e.id}
+										>
+											<FiCheckCircle color="#FFF" />
+
+											<input
+												id={v.slug + '_' + e.id}
+												type="checkbox"
+											/>
+
+											<label
+												htmlFor={v.slug + '_' + e.id}
+												className={style.active}
+											>
+												{e.vaccine}
+											</label>
+										</div>
+									) : (
 										<div
 											className={style.item}
 											key={v.slug + '_' + e.id}
 										>
 											<FiX />
+
 											<input
 												id={v.slug + '_' + e.id}
 												type="checkbox"
 											/>
+
 											<label
 												htmlFor={v.slug + '_' + e.id}
 											>
