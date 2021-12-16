@@ -1,9 +1,12 @@
 import Head from 'next/head'
+import Image from 'next/image'
+
 import style from './style.module.sass'
 
 import { FiAlertTriangle } from 'react-icons/fi'
 
-import Menu from '../../components/menu'
+import Menu from '@/components/menu'
+import InputPadrao from '@/components/inputs/input_padrao'
 
 const delivery_report = () => {
 	return (
@@ -15,14 +18,15 @@ const delivery_report = () => {
 			<div className={style.delivery_report}>
 				<p className={style.title}>Incubatório de Avós</p>
 				<div className={style.card}>
-					<div className={style.formGroup}>
-						<label htmlFor="client">Cliente</label>
-						<input type="text" id="client" />
+					<p className={style.title}>Dados do Cliente</p>
+					<div className={style.dataClient}>
+						<div className={style.labelFlag}>
+							<p>Cliente</p>
+							<Image src="/brazil.webp" width={30} height={20} />
+						</div>
+						<h2>AD&#39;ORO</h2>
 					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="city">Cidade</label>
-						<input type="text" id="city" />
-					</div>
+					<InputPadrao name="client_city" title="Cidade" />
 					<div className={style.formGroup}>
 						<label htmlFor="state">Estado</label>
 						<select className={style.formGroup}>
@@ -56,42 +60,27 @@ const delivery_report = () => {
 							<option value="EX">Estrangeiro</option>
 						</select>
 					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="cargo_request">Carga / Pedido</label>
-						<input type="text" id="cargo_request" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="date_expedition">Data Espedição</label>
-						<input type="date" id="date_expedition" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="amount_chick_box">
-							Quantidade pintos por Caixa
-						</label>
-						<input type="number" id="amount_chick_box" />
-					</div>
+					<InputPadrao name="cargo_request" title="Carga / Pedido" />
+					<InputPadrao
+						name="date_expedition"
+						title="Data Espedição"
+					/>
+					<InputPadrao
+						name="amount_chick_box"
+						title="Quantidade pintos por Caixa"
+					/>
 					<div className={style.content}>
 						<div className={style.item}>
-							<div className={style.formGroup}>
-								<label htmlFor="product_line">Linha</label>
-								<input type="tel" id="product_line" />
-							</div>
-							<div className={style.formGroup}>
-								<label htmlFor="amount_requested">
-									Solicitado
-								</label>
-								<input type="tel" id="amount_requested" />
-							</div>
-							<div className={style.formGroup}>
-								<label htmlFor="amount_send">Enviado</label>
-								<input type="tel" id="amount_send" />
-							</div>
-							<div className={style.formGroup}>
-								<label htmlFor="amount_send">
-									NF Faturamento
-								</label>
-								<input type="tel" id="amount_send" />
-							</div>
+							<InputPadrao name="product_line" title="Linha" />
+							<InputPadrao
+								name="amount_requested"
+								title="Solicitado"
+							/>
+							<InputPadrao name="amount_send" title="Enviado" />
+							<InputPadrao
+								name="amount_send"
+								title="NF Faturamento"
+							/>
 						</div>
 					</div>
 					<button type="button" className={style.btnPrimary}>
@@ -100,37 +89,33 @@ const delivery_report = () => {
 				</div>
 				<p className={style.title}>Motorista</p>
 				<div className={style.card}>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_hour_expedition">
-							Horário de Expedição
-						</label>
-						<input type="time" id="drive_hour_expedition" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_km_route">
-							Distância Percorrida em KM
-							<small> (do Incub ao Cliente)</small>
-						</label>
-						<input type="number" id="drive_km_route" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_total_time">
-							Tempo de Viagem
-						</label>
-						<input type="text" id="drive_total_time" />
-					</div>
+					<InputPadrao
+						name="drive_hour_expedition"
+						title="Horário de Expedição"
+						type="time"
+					/>
+					<InputPadrao
+						name="drive_km_route"
+						title="Distância Percorrida em KM (do Incub ao Cliente)"
+						type="number"
+					/>
+					<InputPadrao
+						name="drive_total_time"
+						title="Tempo de Viagem"
+						type="text"
+					/>
 					<p className={style.titleInternal}>Descarregamento</p>
 					<div className={style.contentRow}>
-						<div className={style.formGroup}>
-							<label htmlFor="drive_hour_download_start">
-								Início
-							</label>
-							<input type="time" id="drive_hour_download_start" />
-						</div>
-						<div className={style.formGroup}>
-							<label htmlFor="drive_hour_download_end">Fim</label>
-							<input type="time" id="drive_hour_download_end" />
-						</div>
+						<InputPadrao
+							name="drive_hour_download_start"
+							title="Início"
+							type="time"
+						/>
+						<InputPadrao
+							name="drive_hour_download_end"
+							title="Fim"
+							type="time"
+						/>
 					</div>
 					<div className={style.formGroup}>
 						<label htmlFor="drive_download_cargo">
@@ -177,35 +162,26 @@ const delivery_report = () => {
 						</label>
 						<textarea id="drive_comment" rows={5}></textarea>
 					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_download_check_bed">
-							Nome do Motorista
-						</label>
-						<input type="text" value="Júlio" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_date">Data</label>
-						<input type="date" id="drive_date" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_plate">Placa</label>
-						<input type="text" id="drive_plate" />
-					</div>
+					<InputPadrao
+						name="drive_download_check_bed"
+						title="Nome do Motorista"
+					/>
+					<InputPadrao name="drive_date" title="Data" type="date" />
+					<InputPadrao name="drive_plate" title="Placa" />
 				</div>
 				<p className={style.title}>Cliente</p>
 				<div className={style.card}>
 					<p className={style.titleInternal}>Horário de Chegada</p>
 					<div className={style.contentRow}>
-						<div className={style.formGroup}>
-							<label htmlFor="client_meet_point">
-								Ponto de Encontro
-							</label>
-							<input type="time" id="client_meet_point" />
-						</div>
-						<div className={style.formGroup}>
-							<label htmlFor="client_farm">Granja</label>
-							<input type="time" id="client_farm" />
-						</div>
+						<InputPadrao
+							name="client_meet_point"
+							title="Ponto de Encontro"
+						/>
+						<InputPadrao
+							name="client_farm"
+							title="Granja"
+							type="time"
+						/>
 					</div>
 					<div className={style.formGroup}>
 						<label htmlFor="client_count_box">
@@ -229,14 +205,16 @@ const delivery_report = () => {
 					</div>
 					<p className={style.titleInternal}>Número de aves</p>
 					<div className={style.contentRow}>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_female">Fêmeas</label>
-							<input type="tel" id="client_amount_female" />
-						</div>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_male">Macho</label>
-							<input type="tel" id="client_amount_male" />
-						</div>
+						<InputPadrao
+							name="client_amount_female"
+							title="Fêmeas"
+							type="number"
+						/>
+						<InputPadrao
+							name="client_amount_male"
+							title="Macho"
+							type="number"
+						/>
 					</div>
 					<div className={style.formGroup}>
 						<label htmlFor="client_bells">Campânulas</label>
@@ -266,35 +244,31 @@ const delivery_report = () => {
 						Mortalidade na Chegada
 					</p>
 					<div className={style.contentRow}>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_die_female">
-								Fêmeas
-							</label>
-							<input type="tel" id="client_amount_die_female" />
-						</div>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_die_male">
-								Macho
-							</label>
-							<input type="tel" id="client_amount_die_male" />
-						</div>
+						<InputPadrao
+							name="client_amount_die_female"
+							title="Fêmeas"
+							type="number"
+						/>
+						<InputPadrao
+							name="client_amount_die_male"
+							title="Macho"
+							type="number"
+						/>
 					</div>
 					<p className={style.titleInternal}>
 						Pintos coletados para laboratório
 					</p>
 					<div className={style.contentRow}>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_lab_female">
-								Fêmeas
-							</label>
-							<input type="time" id="client_amount_lab_female" />
-						</div>
-						<div className={style.formGroup}>
-							<label htmlFor="client_amount_lab_male">
-								Macho
-							</label>
-							<input type="time" id="client_amount_lab_male" />
-						</div>
+						<InputPadrao
+							name="client_amount_lab_female"
+							title="Fêmeas"
+							type="number"
+						/>
+						<InputPadrao
+							name="client_amount_lab_female"
+							title="Macho"
+							type="number"
+						/>
 					</div>
 					<div className={style.notice}>
 						<p>

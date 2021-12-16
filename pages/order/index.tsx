@@ -4,15 +4,11 @@ import Image from 'next/image'
 
 import style from './style.module.sass'
 
-import Menu from '../../components/menu'
+import Menu from '@/components/menu'
+import InputPadrao from '@/components/inputs/input_padrao'
 
 import Swal from 'sweetalert2'
-import {
-	FiAlertTriangle,
-	FiChevronDown,
-	FiX,
-	FiCheckCircle,
-} from 'react-icons/fi'
+import { FiAlertTriangle, FiChevronDown, FiX } from 'react-icons/fi'
 
 const order = () => {
 	const orders = [
@@ -35,7 +31,7 @@ const order = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'In Ovo - 2 Selecionadas',
+			title: 'In Ovo - X Selecionadas',
 			slug: 'inovo',
 			all: [
 				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
@@ -43,11 +39,11 @@ const order = () => {
 				{ id: 3, vaccine: 'HVT', check: false },
 				{ id: 4, vaccine: 'RISPENS', check: false },
 				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
-				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: true },
+				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
 				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
 				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
 				{ id: 9, vaccine: 'HVT+SB1', check: false },
-				{ id: 10, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: true },
+				{ id: 10, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: false },
 				{ id: 11, vaccine: 'VAXXITEK (HVT+IBD)', check: false },
 				{ id: 12, vaccine: 'VECTORMUNE HVT LT (HVT+LT)', check: false },
 				{
@@ -59,7 +55,7 @@ const order = () => {
 		},
 		{
 			id: 2,
-			title: 'Subcutânea - 1 Selecionada',
+			title: 'Subcutânea - X Selecionadas',
 			slug: 'subcutanea',
 			all: [
 				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
@@ -68,7 +64,7 @@ const order = () => {
 				{ id: 4, vaccine: 'RISPENS', check: false },
 				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
 				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
-				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: true },
+				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
 				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
 				{
 					id: 9,
@@ -88,11 +84,11 @@ const order = () => {
 		},
 		{
 			id: 3,
-			title: 'Spray - 1 Selecionada',
+			title: 'Spray - X Selecionadas',
 			slug: 'spray',
 			all: [
 				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: false },
-				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: true },
+				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
 				{ id: 3, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: false },
 				{ id: 4, vaccine: 'POULTRYSTAR (PROBIÓTICO)', check: false },
 			],
@@ -237,36 +233,22 @@ const order = () => {
 								<button>
 									{v.title} <FiChevronDown />
 								</button>
-								{v.all?.map(e => {
-									return e.check === true ? (
-										<div
-											className={style.itemActive}
-											key={v.slug + '_' + e.id}
-										>
-											<FiCheckCircle color="#FFF" />
-
-											<input
-												id={v.slug + '_' + e.id}
-												type="checkbox"
-											/>
-
-											<label
-												htmlFor={v.slug + '_' + e.id}
-												className={style.active}
-											>
-												{e.vaccine}
-											</label>
-										</div>
-									) : (
+								{v.all?.map((e, i) => {
+									return (
 										<div
 											className={style.item}
 											key={v.slug + '_' + e.id}
 										>
-											<FiX />
-
 											<input
 												id={v.slug + '_' + e.id}
 												type="checkbox"
+												defaultValue={e.id}
+												onChange={e => {
+													console.log(
+														(v.all[i].check =
+															e.target.checked)
+													)
+												}}
 											/>
 
 											<label
@@ -295,7 +277,6 @@ const order = () => {
 											className={style.item}
 											key={v.slug + '_' + e.id}
 										>
-											<FiX />
 											<input
 												id={v.slug + '_' + e.id}
 												type="checkbox"
@@ -314,52 +295,31 @@ const order = () => {
 				</div>
 				<p className={style.title}>Faturamento</p>
 				<div className={style.billing}>
-					<div className={style.formGroup}>
-						<label htmlFor="bill_company">Empresa</label>
-						<input type="text" id="bill_company" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="bill_id">CNPJ/CPF</label>
-						<input type="text" id="bill_id" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="bill_sub_state">
-							Inscrição Estadual
-						</label>
-						<input type="text" id="bill_sub_state" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="bill_nucleo">Núcleo</label>
-						<input type="text" id="bill_nucleo" value="" />
-					</div>
+					<InputPadrao name="bill_company" title="Empresa" />
+
+					<InputPadrao name="bill_id" title="CNPJ/CPF" />
+
+					<InputPadrao
+						name="bill_sub_state"
+						title="Inscrição Estadual"
+					/>
+
+					<InputPadrao name="bill_nucleo" title="Núcleo" />
 				</div>
 
 				<p className={style.title}>Entrega com Remessa</p>
 				<div className={style.delivery}>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_company">Empresa</label>
-						<input type="text" id="delivery_company" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_id">CNPJ/CPF</label>
-						<input type="text" id="delivery_id" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_sub_state">
-							Inscrição Estadual
-						</label>
-						<input type="text" id="delivery_sub_state" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_address">
-							Endereço de Entrega
-						</label>
-						<input type="text" id="delivery_address" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_city">Cidade</label>
-						<input type="text" id="delivery_city" value="" />
-					</div>
+					<InputPadrao name="delivery_company" title="Empresa" />
+					<InputPadrao name="delivery_id" title="CNPJ/CPF" />
+					<InputPadrao
+						name="delivery_sub_state"
+						title="Inscrição Estadual"
+					/>
+					<InputPadrao
+						name="delivery_address"
+						title="Endereço de Entrega"
+					/>
+					<InputPadrao name="delivery_city" title="Cidade" />
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_state">Estado</label>
 						<select id="delivery_state" name="state">
@@ -393,25 +353,19 @@ const order = () => {
 							<option value="EX">Estrangeiro</option>
 						</select>
 					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_reference">
-							Ponto de Referência
-						</label>
-						<input type="text" id="delivery_reference" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_receiver">
-							Contato na Granja
-						</label>
-						<input type="text" id="delivery_receiver" value="" />
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_nucleo">Núcleo</label>
-						<input type="text" id="delivery_nucleo" value="" />
-					</div>
+					<InputPadrao
+						name="delivery_reference"
+						title="Ponto de Referência"
+					/>
+					<InputPadrao
+						name="delivery_receiver"
+						title="Contato na Granja"
+					/>
+					<InputPadrao name="delivery_nucleo" title="Núcleo" />
+					<InputPadrao name="delivery_comments" title="Observações" />
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_comments">observações</label>
-						<input type="text" id="delivery_comments" value="" />
+						<textarea id="delivery_comments" value=""></textarea>
 					</div>
 				</div>
 				<button type="button" className={style.btnPrimary}>
