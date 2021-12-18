@@ -1,14 +1,19 @@
+import React, { useState } from 'react'
+
 import Head from 'next/head'
 import Image from 'next/image'
 
 import style from './style.module.sass'
 
 import { FiAlertTriangle } from 'react-icons/fi'
+import { motion } from 'framer-motion'
 
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
 
 const delivery_report = () => {
+	const [tab, setTab] = useState('client')
+
 	return (
 		<>
 			<Head>
@@ -87,239 +92,291 @@ const delivery_report = () => {
 						Adicionar
 					</button>
 				</div>
-				<p className={style.title}>Motorista</p>
-				<div className={style.card}>
-					<InputPadrao
-						name="drive_hour_expedition"
-						title="Horário de Expedição"
-						type="time"
-					/>
-					<InputPadrao
-						name="drive_km_route"
-						title="Distância Percorrida em KM (do Incub ao Cliente)"
-						type="number"
-					/>
-					<InputPadrao
-						name="drive_total_time"
-						title="Tempo de Viagem"
-						type="text"
-					/>
-					<p className={style.titleInternal}>Descarregamento</p>
-					<div className={style.contentRow}>
-						<InputPadrao
-							name="drive_hour_download_start"
-							title="Início"
-							type="time"
-						/>
-						<InputPadrao
-							name="drive_hour_download_end"
-							title="Fim"
-							type="time"
-						/>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_download_cargo">
-							Motorista Realizou?
-						</label>
-						<select id="drive_download_cargo">
-							<option value="-1">Selecione</option>
-							<option value="0">Não</option>
-							<option value="1">Sim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_download_check">
-							Motorista Acompanhou?
-						</label>
-						<select id="drive_download_check">
-							<option value="-1">Selecione</option>
-							<option value="0">Não</option>
-							<option value="1">Sim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_download_check_amount">
-							Motorista acompanhou a contagem?
-						</label>
-						<select id="drive_download_check_amount">
-							<option value="-1">Selecione</option>
-							<option value="0">Não</option>
-							<option value="1">Sim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_download_check_bed">Cama</label>
-						<select id="drive_download_check_bed">
-							<option value="-1">Selecione</option>
-							<option value="0">Nova</option>
-							<option value="1">Reutilizada</option>
-							<option value="2">Não observado</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="drive_comment">
-							Observações do Motorista
-						</label>
-						<textarea id="drive_comment" rows={5}></textarea>
-					</div>
-					<InputPadrao
-						name="drive_download_check_bed"
-						title="Nome do Motorista"
-					/>
-					<InputPadrao name="drive_date" title="Data" type="date" />
-					<InputPadrao name="drive_plate" title="Placa" />
+
+				<div className={style.tabs}>
+					<button
+						type="button"
+						id="tab_client"
+						className={`${tab == 'client' && style.active}`}
+						onClick={() => setTab('client')}
+					>
+						Cliente
+					</button>
+					<button
+						type="button"
+						id="tab_driver"
+						className={`${tab == 'driver' && style.active}`}
+						onClick={() => setTab('driver')}
+					>
+						Motorista
+					</button>
 				</div>
-				<p className={style.title}>Cliente</p>
-				<div className={style.card}>
-					<p className={style.titleInternal}>Horário de Chegada</p>
-					<div className={style.contentRow}>
-						<InputPadrao
-							name="client_meet_point"
-							title="Ponto de Encontro"
-						/>
-						<InputPadrao
-							name="client_farm"
-							title="Granja"
-							type="time"
-						/>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_count_box">
-							Contagem das caixas?
-						</label>
-						<select id="client_count_box">
-							<option value="-1">Selecione</option>
-							<option value="0">Não</option>
-							<option value="1">Sim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_correct_amount">
-							Quantidade confere?
-						</label>
-						<select id="client_correct_amount">
-							<option value="-1">Selecione</option>
-							<option value="0">Não</option>
-							<option value="1">Sim</option>
-						</select>
-					</div>
-					<p className={style.titleInternal}>Número de aves</p>
-					<div className={style.contentRow}>
-						<InputPadrao
-							name="client_amount_female"
-							title="Fêmeas"
-							type="number"
-						/>
-						<InputPadrao
-							name="client_amount_male"
-							title="Macho"
-							type="number"
-						/>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_bells">Campânulas</label>
-						<select id="client_bells">
-							<option value="-1">Selecione</option>
-							<option value="0">Ligadas</option>
-							<option value="1">Desligadas</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_fountains">Bebedouros</label>
-						<select id="client_fountains">
-							<option value="-1">Selecione</option>
-							<option value="0">Com Água</option>
-							<option value="1">Sem Água</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_dining">Comedouros</label>
-						<select id="client_dining">
-							<option value="-1">Selecione</option>
-							<option value="0">Com Ração</option>
-							<option value="1">Sem Ração</option>
-						</select>
-					</div>
-					<p className={style.titleInternal}>
-						Mortalidade na Chegada
-					</p>
-					<div className={style.contentRow}>
-						<InputPadrao
-							name="client_amount_die_female"
-							title="Fêmeas"
-							type="number"
-						/>
-						<InputPadrao
-							name="client_amount_die_male"
-							title="Macho"
-							type="number"
-						/>
-					</div>
-					<p className={style.titleInternal}>
-						Pintos coletados para laboratório
-					</p>
-					<div className={style.contentRow}>
-						<InputPadrao
-							name="client_amount_lab_female"
-							title="Fêmeas"
-							type="number"
-						/>
-						<InputPadrao
-							name="client_amount_lab_female"
-							title="Macho"
-							type="number"
-						/>
-					</div>
-					<div className={style.notice}>
-						<p>
-							<FiAlertTriangle />
-							Observação: Sobre coleta de pintos para laboratório
-							fica sob responsabilidade do cliente todos os custos
-							e encargos referentes a análise laboratoriais.
-						</p>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_drive_rating">
-							Avaliação do Motorista
-						</label>
-						<select id="client_drive_rating">
-							<option value="-1">Selecione</option>
-							<option value="0">Muito bom</option>
-							<option value="1">Bom</option>
-							<option value="2">Regular</option>
-							<option value="3">Ruim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_lot_rating">
-							Avaliação do Lote
-						</label>
-						<select id="client_lot_rating">
-							<option value="-1">Selecione</option>
-							<option value="0">Muito bom</option>
-							<option value="1">Bom</option>
-							<option value="2">Regular</option>
-							<option value="3">Ruim</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_gift">
-							Recebeu brinde? (2 Bonés e 2 Canetas)
-						</label>
-						<select id="client_gift">
-							<option value="-1">Selecione</option>
-							<option value="0">Sim</option>
-							<option value="1">Não</option>
-						</select>
-					</div>
-					<div className={style.formGroup}>
-						<label htmlFor="client_coment">Observações</label>
-						<textarea id="client_coment" rows={5}></textarea>
-					</div>
-				</div>
-				<button type="button" className={style.btnPrimary}>
-					Assinar documento
-				</button>
+
+				{tab == 'client' && (
+					<>
+						<div className={`${style.card} ${style.straightLeft}`}>
+							<p className={style.titleInternal}>
+								Horário de Chegada
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="client_meet_point"
+									title="Ponto de Encontro"
+								/>
+								<InputPadrao
+									name="client_farm"
+									title="Granja"
+									type="time"
+								/>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_count_box">
+									Contagem das caixas?
+								</label>
+								<select id="client_count_box">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_correct_amount">
+									Quantidade confere?
+								</label>
+								<select id="client_correct_amount">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<p className={style.titleInternal}>
+								Número de aves
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="client_amount_female"
+									title="Fêmeas"
+									type="number"
+								/>
+								<InputPadrao
+									name="client_amount_male"
+									title="Macho"
+									type="number"
+								/>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_bells">Campânulas</label>
+								<select id="client_bells">
+									<option value="-1">Selecione</option>
+									<option value="0">Ligadas</option>
+									<option value="1">Desligadas</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_fountains">
+									Bebedouros
+								</label>
+								<select id="client_fountains">
+									<option value="-1">Selecione</option>
+									<option value="0">Com Água</option>
+									<option value="1">Sem Água</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_dining">
+									Comedouros
+								</label>
+								<select id="client_dining">
+									<option value="-1">Selecione</option>
+									<option value="0">Com Ração</option>
+									<option value="1">Sem Ração</option>
+								</select>
+							</div>
+							<p className={style.titleInternal}>
+								Mortalidade na Chegada
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="client_amount_die_female"
+									title="Fêmeas"
+									type="number"
+								/>
+								<InputPadrao
+									name="client_amount_die_male"
+									title="Macho"
+									type="number"
+								/>
+							</div>
+							<p className={style.titleInternal}>
+								Pintos coletados para laboratório
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="client_amount_lab_female"
+									title="Fêmeas"
+									type="number"
+								/>
+								<InputPadrao
+									name="client_amount_lab_female"
+									title="Macho"
+									type="number"
+								/>
+							</div>
+							<div className={style.notice}>
+								<p>
+									<FiAlertTriangle />
+									Observação: Sobre coleta de pintos para
+									laboratório fica sob responsabilidade do
+									cliente todos os custos e encargos
+									referentes a análise laboratoriais.
+								</p>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_drive_rating">
+									Avaliação do Motorista
+								</label>
+								<select id="client_drive_rating">
+									<option value="-1">Selecione</option>
+									<option value="0">Muito bom</option>
+									<option value="1">Bom</option>
+									<option value="2">Regular</option>
+									<option value="3">Ruim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_lot_rating">
+									Avaliação do Lote
+								</label>
+								<select id="client_lot_rating">
+									<option value="-1">Selecione</option>
+									<option value="0">Muito bom</option>
+									<option value="1">Bom</option>
+									<option value="2">Regular</option>
+									<option value="3">Ruim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_gift">
+									Recebeu brinde? (2 Bonés e 2 Canetas)
+								</label>
+								<select id="client_gift">
+									<option value="-1">Selecione</option>
+									<option value="0">Sim</option>
+									<option value="1">Não</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="client_coment">
+									Observações
+								</label>
+								<textarea
+									id="client_coment"
+									rows={5}
+								></textarea>
+							</div>
+						</div>
+						<button type="button" className={style.btnPrimary}>
+							Assinar documento
+						</button>
+					</>
+				)}
+
+				{tab == 'driver' && (
+					<>
+						<div className={`${style.card} ${style.straightRight}`}>
+							<InputPadrao
+								name="drive_hour_expedition"
+								title="Horário de Expedição"
+								type="time"
+							/>
+							<InputPadrao
+								name="drive_km_route"
+								title="Distância Percorrida em KM (do Incub ao Cliente)"
+								type="number"
+							/>
+							<InputPadrao
+								name="drive_total_time"
+								title="Tempo de Viagem"
+								type="text"
+							/>
+							<p className={style.titleInternal}>
+								Descarregamento
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="drive_hour_download_start"
+									title="Início"
+									type="time"
+								/>
+								<InputPadrao
+									name="drive_hour_download_end"
+									title="Fim"
+									type="time"
+								/>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_download_cargo">
+									Motorista Realizou?
+								</label>
+								<select id="drive_download_cargo">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_download_check">
+									Motorista Acompanhou?
+								</label>
+								<select id="drive_download_check">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_download_check_amount">
+									Motorista acompanhou a contagem?
+								</label>
+								<select id="drive_download_check_amount">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_download_check_bed">
+									Cama
+								</label>
+								<select id="drive_download_check_bed">
+									<option value="-1">Selecione</option>
+									<option value="0">Nova</option>
+									<option value="1">Reutilizada</option>
+									<option value="2">Não observado</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_comment">
+									Observações do Motorista
+								</label>
+								<textarea
+									id="drive_comment"
+									rows={5}
+								></textarea>
+							</div>
+							<InputPadrao
+								name="drive_download_check_bed"
+								title="Nome do Motorista"
+							/>
+							<InputPadrao
+								name="drive_date"
+								title="Data"
+								type="date"
+							/>
+							<InputPadrao name="drive_plate" title="Placa" />
+						</div>
+					</>
+				)}
 			</div>
 		</>
 	)
