@@ -6,12 +6,11 @@ import Image from 'next/image'
 import style from './style.module.sass'
 
 import { FiAlertTriangle } from 'react-icons/fi'
-import { motion } from 'framer-motion'
 
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
 
-const delivery_report = () => {
+const Delivery_report = () => {
 	const [tab, setTab] = useState('client')
 
 	return (
@@ -382,4 +381,4 @@ const delivery_report = () => {
 	)
 }
 
-export default delivery_report
+export default Delivery_report
