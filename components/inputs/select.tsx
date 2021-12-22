@@ -21,7 +21,9 @@ const Select: React.FC<IProps> = ({ title, name, choice, items }) => {
 							valueoption: string
 						}) => {
 							return (
-								<option value={i.valueoption}>{i.title}</option>
+								<option value={i.valueoption} key={i.name}>
+									{i.title}
+								</option>
 							)
 						}
 					)}
