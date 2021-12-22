@@ -5,10 +5,88 @@ import Image from 'next/image'
 
 import style from './style.module.sass'
 
-import { FiAlertTriangle } from 'react-icons/fi'
+import { FiAlertTriangle, FiCamera } from 'react-icons/fi'
 
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
+import Select from '@/components/inputs/select'
+
+const line = [
+	{ id: 0, name: 'Cobb500', title: 'Cobb 500', valueoption: '1' },
+	{ id: 1, name: 'Cobb700', title: 'Cobb 700', valueoption: '2' },
+	{ id: 2, name: 'MVMALE', title: 'MV MALE', valueoption: '3' },
+	{ id: 3, name: 'VantageMALE', title: 'Vantage MALE', valueoption: '4' },
+]
+
+const state = [
+	{ id: 'AC', name: 'acre', title: 'Acre', valueoption: 'AC' },
+	{ id: 'AL', name: 'alagoas', title: 'Alagoas', valueoption: 'AL' },
+	{ id: 'AP', name: 'amapa', title: 'Amapá', valueoption: 'AP' },
+	{ id: 'AM', name: 'amazonas', title: 'Amazonas', valueoption: 'AM' },
+	{ id: 'BA', name: 'bahia', title: 'Bahia', valueoption: 'BA' },
+	{ id: 'CE', name: 'ceara', title: 'Ceará', valueoption: 'CE' },
+	{
+		id: 'DF',
+		name: 'distrito_federal',
+		title: 'Distrito Federal',
+		valueoption: 'DF',
+	},
+	{
+		id: 'ES',
+		name: 'espirito_santo',
+		title: 'Espírito Santo',
+		valueoption: 'ES',
+	},
+	{ id: 'GO', name: 'goias', title: 'Goiás', valueoption: 'GO' },
+	{ id: 'MA', name: 'maranhao', title: 'Maranhão', valueoption: 'MA' },
+	{ id: 'MT', name: 'mato_grosso', title: 'Mato Grosso', valueoption: 'MT' },
+	{
+		id: 'MS',
+		name: 'mato_grosso_do_sul',
+		title: 'Mato Grosso do Sul',
+		valueoption: 'MS',
+	},
+	{
+		id: 'MG',
+		name: 'minas_gerais',
+		title: 'Minas Gerais',
+		valueoption: 'MG',
+	},
+	{ id: 'PA', name: 'para', title: 'Pará', valueoption: 'PA' },
+	{ id: 'PB', name: 'paraiba', title: 'Paraíba', valueoption: 'PB' },
+	{ id: 'PR', name: 'parana', title: 'Paraná', valueoption: 'PR' },
+	{ id: 'PE', name: 'pernambuco', title: 'Pernambuco', valueoption: 'PE' },
+	{ id: 'PI', name: 'piaui', title: 'Piauí', valueoption: 'PI' },
+	{
+		id: 'RJ',
+		name: 'rio_de_janeiro',
+		title: 'Rio de Janeiro',
+		valueoption: 'RJ',
+	},
+	{
+		id: 'RN',
+		name: 'rio_grande_do_norte',
+		title: 'Rio Grande do Norte',
+		valueoption: 'RN',
+	},
+	{
+		id: 'RS',
+		name: 'rio_grande_do_sul',
+		title: 'Rio Grande do Sul',
+		valueoption: 'RS',
+	},
+	{ id: 'RO', name: 'rondonia', title: 'Rondônia', valueoption: 'RO' },
+	{ id: 'RR', name: 'roraima', title: 'Roraima', valueoption: 'RR' },
+	{
+		id: 'SC',
+		name: 'santa_satarina',
+		title: 'Santa Catarina',
+		valueoption: 'SC',
+	},
+	{ id: 'SP', name: 'sao_paulo', title: 'São Paulo', valueoption: 'SP' },
+	{ id: 'SE', name: 'sergipe', title: 'Sergipe', valueoption: 'SE' },
+	{ id: 'TO', name: 'tocantins', title: 'Tocantins', valueoption: 'TO' },
+]
 
 const Delivery_report = () => {
 	const [tab, setTab] = useState('client')
@@ -30,40 +108,17 @@ const Delivery_report = () => {
 						</div>
 						<h2>AD&#39;ORO</h2>
 					</div>
+					<InputPadrao
+						name="client_department"
+						title="Departamento"
+					/>
 					<InputPadrao name="client_city" title="Cidade" />
-					<div className={style.formGroup}>
-						<label htmlFor="state">Estado</label>
-						<select className={style.formGroup}>
-							<option value="AC">Acre</option>
-							<option value="AL">Alagoas</option>
-							<option value="AP">Amapá</option>
-							<option value="AM">Amazonas</option>
-							<option value="BA">Bahia</option>
-							<option value="CE">Ceará</option>
-							<option value="DF">Distrito Federal</option>
-							<option value="ES">Espírito Santo</option>
-							<option value="GO">Goiás</option>
-							<option value="MA">Maranhão</option>
-							<option value="MT">Mato Grosso</option>
-							<option value="MS">Mato Grosso do Sul</option>
-							<option value="MG">Minas Gerais</option>
-							<option value="PA">Pará</option>
-							<option value="PB">Paraíba</option>
-							<option value="PR">Paraná</option>
-							<option value="PE">Pernambuco</option>
-							<option value="PI">Piauí</option>
-							<option value="RJ">Rio de Janeiro</option>
-							<option value="RN">Rio Grande do Norte</option>
-							<option value="RS">Rio Grande do Sul</option>
-							<option value="RO">Rondônia</option>
-							<option value="RR">Roraima</option>
-							<option value="SC">Santa Catarina</option>
-							<option value="SP">São Paulo</option>
-							<option value="SE">Sergipe</option>
-							<option value="TO">Tocantins</option>
-							<option value="EX">Estrangeiro</option>
-						</select>
-					</div>
+					<Select
+						choice="Selecione..."
+						title="Estado"
+						name="client_state"
+						items={state}
+					/>
 					<InputPadrao name="cargo_request" title="Carga / Pedido" />
 					<InputPadrao
 						name="date_expedition"
@@ -73,23 +128,30 @@ const Delivery_report = () => {
 						name="amount_chick_box"
 						title="Quantidade pintos por Caixa"
 					/>
+					<InputPadrao name="nf_revenues" title="NF Faturamento" />
+					<InputPadrao name="nf_transfer" title="NF Transferência" />
+					<InputPadrao
+						name="nf_extra_chick"
+						title="NF Pintinho Extra"
+					/>
 					<div className={style.content}>
 						<div className={style.item}>
-							<InputPadrao name="product_line" title="Linha" />
+							<Select
+								choice="Selecione..."
+								title="Linha"
+								name="client_line"
+								items={line}
+							/>
 							<InputPadrao
 								name="amount_requested"
 								title="Solicitado"
 							/>
 							<InputPadrao name="amount_send" title="Enviado" />
-							<InputPadrao
-								name="amount_send"
-								title="NF Faturamento"
-							/>
 						</div>
+						<button type="button" className={style.btnPrimary}>
+							Adicionar
+						</button>
 					</div>
-					<button type="button" className={style.btnPrimary}>
-						Adicionar
-					</button>
 				</div>
 
 				<div className={style.tabs}>
@@ -119,6 +181,7 @@ const Delivery_report = () => {
 							</p>
 							<div className={style.contentRow}>
 								<InputPadrao
+									type="time"
 									name="client_meet_point"
 									title="Ponto de Encontro"
 								/>
@@ -138,6 +201,11 @@ const Delivery_report = () => {
 									<option value="1">Sim</option>
 								</select>
 							</div>
+							<InputPadrao
+								name="client_percentage"
+								title="Porcentagem"
+								type="number"
+							/>
 							<div className={style.formGroup}>
 								<label htmlFor="client_correct_amount">
 									Quantidade confere?
@@ -230,6 +298,16 @@ const Delivery_report = () => {
 									referentes a análise laboratoriais.
 								</p>
 							</div>
+							<button
+								className={style.btnPrimary}
+								style={{ marginTop: 4, marginBottom: 16 }}
+							>
+								<FiCamera
+									size={20}
+									style={{ marginRight: 10 }}
+								/>
+								Foto da Entrega
+							</button>
 							<div className={style.formGroup}>
 								<label htmlFor="client_drive_rating">
 									Avaliação do Motorista
@@ -273,6 +351,11 @@ const Delivery_report = () => {
 									rows={5}
 								></textarea>
 							</div>
+							<InputPadrao
+								name="client_responsible"
+								title="Responsável pela recepção"
+							/>
+							<InputPadrao name="client_office" title="Cargo" />
 						</div>
 						<button type="button" className={style.btnPrimary}>
 							Assinar documento
@@ -298,6 +381,26 @@ const Delivery_report = () => {
 								title="Tempo de Viagem"
 								type="text"
 							/>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_transhipment">
+									Transbordo para outro veículo?
+								</label>
+								<select id="drive_transhipment">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
+								<label htmlFor="drive_aircraft">
+									Transporte utilizando aeronave?
+								</label>
+								<select id="drive_aircraft">
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
+								</select>
+							</div>
 							<p className={style.titleInternal}>
 								Descarregamento
 							</p>
@@ -364,8 +467,12 @@ const Delivery_report = () => {
 								></textarea>
 							</div>
 							<InputPadrao
-								name="drive_download_check_bed"
-								title="Nome do Motorista"
+								name="drive_name_one"
+								title="Nome do Motorista - 1"
+							/>
+							<InputPadrao
+								name="drive_name_two"
+								title="Nome do Motorista - 2"
 							/>
 							<InputPadrao
 								name="drive_date"
@@ -373,7 +480,31 @@ const Delivery_report = () => {
 								type="date"
 							/>
 							<InputPadrao name="drive_plate" title="Placa" />
+
+							<div className={style.options}>
+								<div className={style.item}>
+									<input
+										id="climsystem"
+										type="checkbox"
+										onChange={e => {}}
+									/>
+
+									<label htmlFor="climsystem">
+										Climsystem
+									</label>
+								</div>
+								<div className={style.item}>
+									<input
+										id="smithaway"
+										type="checkbox"
+										onChange={e => {}}
+									/>
+
+									<label htmlFor="smithaway">Smithaway</label>
+								</div>
+							</div>
 						</div>
+						<button className={style.btnPrimary}>Salvar</button>
 					</>
 				)}
 			</div>

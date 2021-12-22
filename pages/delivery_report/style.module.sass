@@ -112,7 +112,9 @@
 	.btnPrimary
 		background: $primary
 		color: $white
-		display: block
+		display: flex
+		align-items: center
+		justify-content: center
 		width: 100%
 		border: none
 		border-radius: 0.5rem
@@ -133,4 +135,42 @@
 			svg
 				margin-right: 6px
 				margin-bottom: -1px
+
+	.options
+
+		display: flex
+		align-items: center
+		justify-content: space-between
+		gap: 1rem
+
+		.item
+			width: 50%
+
+			input
+				display: none
+
+				&:checked + label
+					@include labelCheckbox($white, $success)
+					margin-bottom: 0
+
+					&::before
+						width: 26px
+						height: 26px
+						content: url('../../public/check-circle.svg')
+						margin-right: 6px
+						line-height: 2.7rem
+
+			label
+				@include labelCheckbox($gray-300, $white)
+				margin-bottom: 0
+
+				&::selection
+					background: rgba(255,255,255,0)
+
+				&::before
+					width: 26px
+					height: 26px
+					content: url('../../public/x-circle.svg')
+					margin-right: 6px
+					line-height: 2.7rem
 
