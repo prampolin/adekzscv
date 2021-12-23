@@ -312,7 +312,22 @@ const Delivery_report = () => {
 								</select>
 							</div>
 							<p className={style.titleInternal}>
-								Mortalidade na Chegada
+								Mortalidade na Chegada (CobbMale)
+							</p>
+							<div className={style.contentRow}>
+								<InputPadrao
+									name="client_amount_die_female"
+									title="Fêmeas"
+									type="number"
+								/>
+								<InputPadrao
+									name="client_amount_die_male"
+									title="Macho"
+									type="number"
+								/>
+							</div>
+							<p className={style.titleInternal}>
+								Mortalidade na Chegada (500SF)
 							</p>
 							<div className={style.contentRow}>
 								<InputPadrao
