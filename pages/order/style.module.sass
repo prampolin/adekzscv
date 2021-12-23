@@ -192,6 +192,25 @@
 							margin-right: 6px
 							line-height: 2.7rem
 
+					&:checked + label + .options
+						display: flex
+						flex-direction: column
+						border-radius: 0.5rem
+						border: 1px solid $gray-50
+						padding: 1rem
+						margin-bottom: 2rem
+						margin-top: -1rem
+
+						.item
+
+							&:not(:last-child)
+								margin-bottom: 1rem
+
+							p
+								font-size: 0.8rem
+								color: #0009
+
+
 				label
 					@include labelCheckbox($gray-300, $white)
 
@@ -204,6 +223,10 @@
 						content: url('../../public/x-circle.svg')
 						margin-right: 6px
 						line-height: 2.7rem
+
+				.options
+					position: relative
+					display: none
 
 	.billing,
 	.delivery
@@ -221,3 +244,23 @@
 		height: 42px
 		text-transform: uppercase
 		font-weight: bold
+
+	.feet
+
+		p
+			padding: 0 0.5rem
+			color: #0009
+			font-size: 0.9rem
+			text-align: center
+
+		.feetContent
+			width: 100%
+			display: flex
+			align-items: center
+			justify-content: space-between
+
+			.footLeft,
+			.footRight
+				width: 50%
+				height: auto
+				display: block

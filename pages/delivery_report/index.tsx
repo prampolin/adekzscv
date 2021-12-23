@@ -5,7 +5,12 @@ import Image from 'next/image'
 
 import style from './style.module.sass'
 
-import { FiAlertTriangle, FiCamera } from 'react-icons/fi'
+import {
+	FiAlertTriangle,
+	FiCamera,
+	FiChevronDown,
+	FiChevronUp,
+} from 'react-icons/fi'
 
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
@@ -90,6 +95,7 @@ const state = [
 
 const Delivery_report = () => {
 	const [tab, setTab] = useState('client')
+	const [seeClient, setSeeClient] = useState(true)
 
 	return (
 		<>
@@ -100,57 +106,103 @@ const Delivery_report = () => {
 			<div className={style.delivery_report}>
 				<p className={style.title}>Incubatório de Avós</p>
 				<div className={style.card}>
-					<p className={style.title}>Dados do Cliente</p>
+					<p className={`${style.title} ${style.mt0}`}>
+						Dados do Cliente
+					</p>
+
 					<div className={style.dataClient}>
 						<div className={style.labelFlag}>
 							<p>Cliente</p>
 							<Image src="/brazil.webp" width={30} height={20} />
 						</div>
 						<h2>AD&#39;ORO</h2>
-					</div>
-					<InputPadrao
-						name="client_department"
-						title="Departamento"
-					/>
-					<InputPadrao name="client_city" title="Cidade" />
-					<Select
-						choice="Selecione..."
-						title="Estado"
-						name="client_state"
-						items={state}
-					/>
-					<InputPadrao name="cargo_request" title="Carga / Pedido" />
-					<InputPadrao
-						name="date_expedition"
-						title="Data Espedição"
-					/>
-					<InputPadrao
-						name="amount_chick_box"
-						title="Quantidade pintos por Caixa"
-					/>
-					<InputPadrao name="nf_revenues" title="NF Faturamento" />
-					<InputPadrao name="nf_transfer" title="NF Transferência" />
-					<InputPadrao
-						name="nf_extra_chick"
-						title="NF Pintinho Extra"
-					/>
-					<div className={style.content}>
-						<div className={style.item}>
-							<Select
-								choice="Selecione..."
-								title="Linha"
-								name="client_line"
-								items={line}
-							/>
-							<InputPadrao
-								name="amount_requested"
-								title="Solicitado"
-							/>
-							<InputPadrao name="amount_send" title="Enviado" />
-						</div>
-						<button type="button" className={style.btnPrimary}>
-							Adicionar
-						</button>
+						<ul>
+							<li>
+								<p>Departamento</p>
+								<h4>Nome do Departamento</h4>
+							</li>
+							<li>
+								<p>Cidade / Estado</p>
+								<h4>São José do Rio Preto/SP</h4>
+							</li>
+							<li>
+								<p>Carga / Pedido</p>
+								<h4>2810/21-M</h4>
+							</li>
+							<li>
+								<p>Data Expedição</p>
+								<h4>07/01/2022</h4>
+							</li>
+							<li>
+								<p>Quantidade pintos por Caixa</p>
+								<h4>80</h4>
+							</li>
+							<li>
+								<p>NF Faturamento</p>
+								<h4>387312</h4>
+							</li>
+							<li>
+								<p>NF Transferência</p>
+								<h4>498237</h4>
+							</li>
+							<li>
+								<p>NF Pintinho Extra</p>
+								<h4>2903847</h4>
+							</li>
+						</ul>
+						<ul className={style.line}>
+							<li>
+								<p>Linha</p>
+								<h4>CobbMale</h4>
+							</li>
+							<li>
+								<p>Solicitado</p>
+								<h4>3640</h4>
+							</li>
+							<li>
+								<p>Enviado</p>
+								<h4>3713</h4>
+							</li>
+						</ul>
+						<ul className={style.line}>
+							<li>
+								<p>Linha</p>
+								<h4>500 SF</h4>
+							</li>
+							<li>
+								<p>Solicitado</p>
+								<h4>20000</h4>
+							</li>
+							<li>
+								<p>Enviado</p>
+								<h4>20800</h4>
+							</li>
+						</ul>
+						{seeClient ? (
+							<button
+								type="button"
+								className={style.btnOutlinePrimary}
+								onClick={() => setSeeClient(!seeClient)}
+							>
+								Ver menos
+								<FiChevronUp
+									size={20}
+									style={{ marginLeft: 8 }}
+								/>
+							</button>
+						) : (
+							<button
+								type="button"
+								className={`${style.btnOutlinePrimary} ${style.btnFixed}`}
+								onClick={() => setSeeClient(!seeClient)}
+							>
+								Ver mais
+								<FiChevronDown
+									size={20}
+									style={{ marginLeft: 8 }}
+								/>
+							</button>
+						)}
 					</div>
 				</div>
 
@@ -504,7 +556,14 @@ const Delivery_report = () => {
 								</div>
 							</div>
 						</div>
-						<button className={style.btnPrimary}>Salvar</button>
+						<div className={style.actions}>
+							<button className={style.btnOutlinePrimary}>
+								Salvar
+							</button>
+							<button className={style.btnPrimary}>
+								Finalizar e Enviar
+							</button>
+						</div>
 					</>
 				)}
 			</div>

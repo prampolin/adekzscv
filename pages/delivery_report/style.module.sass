@@ -11,9 +11,9 @@
 		margin: 0.5rem 0
 
 	.dataClient
-		@include card()
+		position: relative
 		padding-bottom: 0.5rem
-		margin-bottom: 1rem
+		overflow-y: hidden
 
 		.labelFlag
 			display: flex
@@ -24,6 +24,42 @@
 
 		h2
 			margin-bottom: 0.4rem
+
+		ul
+
+			li
+				margin: 1rem 0
+
+				p
+					font-size: 0.8rem
+					color: $gray-300
+
+				h4
+					font-size: 1.3rem
+
+		ul.line
+			border: 1px solid $gray-50
+			padding: 0 1rem
+			display: flex
+			flex-direction: row
+			flex-wrap: wrap
+
+			&:not(:last-child)
+				margin-bottom: 1rem
+
+
+			li:not(:first-child)
+				width: 50%
+			
+			li
+
+				&:first-child
+					width: 100%
+					margin-bottom: 0
+		
+		.btnFixed
+			position: absolute
+			top: 80px
 
 	.tabs
 		position: relative
@@ -85,6 +121,7 @@
 			padding-top: 0
 
 	.card
+		
 		@include card()
 		margin-bottom: 1rem
 		display: flex
@@ -95,6 +132,9 @@
 		
 		&.straightRight
 			border-top-right-radius: 0 !important
+
+		.mt0
+			margin-top: 0
 
 	.content
 		padding: 1rem
@@ -117,6 +157,20 @@
 		justify-content: center
 		width: 100%
 		border: none
+		border-radius: 0.5rem
+		height: 42px
+		text-transform: uppercase
+		font-weight: bold
+		cursor: pointer
+
+	.btnOutlinePrimary
+		background: $white
+		color: $primary
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 100%
+		border: 1px solid $primary
 		border-radius: 0.5rem
 		height: 42px
 		text-transform: uppercase
@@ -174,3 +228,6 @@
 					margin-right: 6px
 					line-height: 2.7rem
 
+	.actions
+		display: flex
+		gap: 1rem

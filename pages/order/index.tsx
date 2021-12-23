@@ -8,7 +8,9 @@ import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
 
 import Swal from 'sweetalert2'
-import { FiAlertTriangle, FiChevronDown, FiX } from 'react-icons/fi'
+import { FiAlertTriangle, FiChevronDown } from 'react-icons/fi'
+
+import { motion } from 'framer-motion'
 
 const order = () => {
 	const orders = [
@@ -34,7 +36,20 @@ const order = () => {
 			title: 'In Ovo - X Selecionadas',
 			slug: 'inovo',
 			all: [
-				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
+				{
+					id: 1,
+					vaccine: 'BDA BLEN (GUMBORO)',
+					check: false,
+					options: [
+						{
+							id: 1,
+							disease: 'Doença',
+							strin: 'CEPA',
+							lab: 'Nome do Laboratório',
+							delivery: 'Entrega',
+						},
+					],
+				},
 				{ id: 2, vaccine: 'BOUBA SUAVE', check: false },
 				{ id: 3, vaccine: 'HVT', check: false },
 				{ id: 4, vaccine: 'RISPENS', check: false },
@@ -244,10 +259,10 @@ const order = () => {
 												type="checkbox"
 												defaultValue={e.id}
 												onChange={e => {
-													console.log(
-														(v.all[i].check =
-															e.target.checked)
-													)
+													// console.log(
+													// 	(v.all[i].check =
+													// 		e.target.checked)
+													// )
 												}}
 											/>
 
@@ -256,6 +271,23 @@ const order = () => {
 											>
 												{e.vaccine}
 											</label>
+
+											<div className={style.options}>
+												<div className={style.item}>
+													<p>Doença</p>
+													<h4>GUMBORO</h4>
+												</div>
+												<div className={style.item}>
+													<p>CEPA</p>
+													<h4>WINTERFIELD 2512</h4>
+												</div>
+												<div className={style.item}>
+													<p>Laboratório</p>
+													<h4>
+														CEVA Entrega COBB COL.
+													</h4>
+												</div>
+											</div>
 										</div>
 									)
 								})}
@@ -292,6 +324,33 @@ const order = () => {
 							</div>
 						)
 					})}
+					<div className={style.feet}>
+						<p>
+							Tratamento dos dedos 4 e 5 conforme a imagem abaixo
+						</p>
+						<div className={style.feetContent}>
+							<div className={style.footLeft}>
+								<Image
+									src="/foot_left.svg"
+									width={500}
+									height={500}
+									objectFit="cover"
+									layout="responsive"
+									alt=""
+								/>
+							</div>
+							<div className={style.footRight}>
+								<Image
+									src="/foot_right.svg"
+									width={100}
+									height={100}
+									objectFit="cover"
+									layout="responsive"
+									alt=""
+								/>
+							</div>
+						</div>
+					</div>
 				</div>
 				<p className={style.title}>Faturamento</p>
 				<div className={style.billing}>
