@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Head from 'next/head'
 import Image from 'next/image'
@@ -182,7 +182,7 @@ const Delivery_report = () => {
 							<button
 								type="button"
 								className={style.btnOutlinePrimary}
-								onClick={() => setSeeClient(!seeClient)}
+								// onClick={() => setSeeClient(!seeClient)}
 							>
 								Ver menos
 								<FiChevronUp
