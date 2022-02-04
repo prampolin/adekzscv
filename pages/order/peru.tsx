@@ -10,7 +10,7 @@ import InputPadrao from '@/components/inputs/input_padrao'
 import Swal from 'sweetalert2'
 import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 
-const orderColombia = () => {
+const orderPeru = () => {
 	const orders = [
 		{
 			id: 1,
@@ -67,6 +67,25 @@ const orderColombia = () => {
 				},
 			],
 		},
+		{
+			id: 2,
+			title: 'Coccidiose',
+			slug: 'coccidiose',
+			all: [
+				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: true },
+				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
+				{ id: 3, vaccine: 'LIVACOCC', check: false },
+			],
+		},
+		{
+			id: 3,
+			title: 'Adicionadas',
+			slug: 'adicionadas',
+			all: [
+				{ id: 1, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: true },
+				{ id: 2, vaccine: 'POULTRYSTAR (PROBIÓTICO)', check: false },
+			],
+		},
 	]
 
 	const services = [
@@ -90,17 +109,29 @@ const orderColombia = () => {
 		},
 	]
 
+	const additional_services = [
+		{
+			id: 1,
+			title: 'Serviço Adicionais',
+			slug: 'servicos_adicionais',
+			all: [
+				{ id: 1, item: 'Gel hidratante' },
+				{ id: 2, item: 'Antibiótico' },
+			],
+		},
+	]
+
 	const timeToAlert = () => {
 		setTimeout(() => {
-			Swal.fire({
-				title: 'Prezado cliente!',
-				text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
-				icon: 'info',
-				confirmButtonText: 'Fechar',
-				customClass: {
-					confirmButton: 'closeBtn',
-				},
-			})
+			// Swal.fire({
+			// 	title: 'Prezado cliente!',
+			// 	text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
+			// 	icon: 'info',
+			// 	confirmButtonText: 'Fechar',
+			// 	customClass: {
+			// 		confirmButton: 'closeBtn',
+			// 	},
+			// })
 		}, 500)
 	}
 
@@ -120,7 +151,7 @@ const orderColombia = () => {
 					<div className={style.labelFlag}>
 						<p>Cliente</p>
 						<Image
-							src="/colombia.webp"
+							src="/peru.jpeg"
 							width={30}
 							height={20}
 							title="Colombia"
@@ -320,6 +351,33 @@ const orderColombia = () => {
 							</div>
 						</div>
 					</div>
+					{additional_services.map((serv, index) => {
+						return (
+							<div className={style.accordion} key={index}>
+								<button>
+									{serv.title} <FiChevronDown />
+								</button>
+								{serv.all?.map(e => {
+									return (
+										<div
+											className={style.item}
+											key={serv.slug + '_' + e.id}
+										>
+											<input
+												id={serv.slug + '_' + e.id}
+												type="checkbox"
+											/>
+											<label
+												htmlFor={serv.slug + '_' + e.id}
+											>
+												{e.item}
+											</label>
+										</div>
+									)
+								})}
+							</div>
+						)
+					})}
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Faturamento</p>
@@ -355,17 +413,23 @@ const orderColombia = () => {
 
 				<p className={style.title}>Dados para Entrega com Remessa</p>
 				<div className={style.delivery}>
-					<InputPadrao name="delivery_company" title="Empresa" />
-					<InputPadrao name="delivery_id" title="CNPJ/CPF" />
 					<InputPadrao
-						name="delivery_sub_state"
-						title="Inscrição Estadual"
+						name="delivery_company"
+						title="Empresa"
+						value="AD'ORO"
 					/>
+					<InputPadrao
+						name="delivery_id"
+						title="CNPJ/CPF"
+						value="000.000.000/0000-00"
+					/>
+					<InputPadrao name="delivery_name" title="Nome da Granja" />
 					<InputPadrao
 						name="delivery_address"
 						title="Endereço de Entrega"
 					/>
 					<InputPadrao name="delivery_city" title="Cidade" />
+					<InputPadrao name="delivery_neighborhood" title="Bairro" />
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_state">Estado</label>
 						<select id="delivery_state" name="state">
@@ -446,4 +510,4 @@ const orderColombia = () => {
 	)
 }
 
-export default orderColombia
+export default orderPeru
