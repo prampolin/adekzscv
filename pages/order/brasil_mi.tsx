@@ -12,7 +12,7 @@ import { FiAlertTriangle, FiChevronDown } from 'react-icons/fi'
 
 import { motion } from 'framer-motion'
 
-const orderBrasilMi = () => {
+const OrderBrasilMi = () => {
 	const orders = [
 		{
 			id: 1,
@@ -147,26 +147,11 @@ const orderBrasilMi = () => {
 
 	const [equal, setEqual] = useState(false)
 
-	// Apagar isso depois
-	const [deliverySubState, setDeliverySubState] = useState('')
-
-	// Apagar isso depois
-
 	const handleEqual = (e: any) => {
 		return e.target.value == '1' ? setEqual(true) : setEqual(false)
 	}
 
-	useEffect(() => {
-		preencheAutomatico()
-	}, [equal])
-
-	const preencheAutomatico = () => {
-		if (equal) {
-			setDeliverySubState('000.000.000.000')
-		} else {
-			setDeliverySubState('')
-		}
-	}
+	useEffect(() => {}, [equal])
 
 	return (
 		<>
@@ -525,4 +510,4 @@ const orderBrasilMi = () => {
 	)
 }
 
-export default orderBrasilMi
+export default OrderBrasilMi

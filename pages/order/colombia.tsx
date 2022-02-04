@@ -10,7 +10,7 @@ import InputPadrao from '@/components/inputs/input_padrao'
 import Swal from 'sweetalert2'
 import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 
-const orderColombia = () => {
+const OrderColombia = () => {
 	const orders = [
 		{
 			id: 1,
@@ -446,4 +446,4 @@ const orderColombia = () => {
 	)
 }
 
-export default orderColombia
+export default OrderColombia
