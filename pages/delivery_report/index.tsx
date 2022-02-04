@@ -133,7 +133,12 @@ const Delivery_report = () => {
 					<div className={style.dataClient}>
 						<div className={style.labelFlag}>
 							<p>Cliente</p>
-							<Image src="/brazil.webp" width={30} height={20} />
+							<Image
+								src="/brazil.webp"
+								width={30}
+								height={20}
+								alt=""
+							/>
 						</div>
 						<h2>ADORO</h2>
 						<ul>

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
 	return (
 		<div className={style.home}>
 			<div style={{ marginBottom: 130, marginTop: 130 }}>
-				<Image src="/logo.svg" width={80} height={60} />
+				<Image src="/logo.svg" width={80} height={60} alt="" />
 			</div>
 			<Link href="/delivery_report">
 				<a>
@@ -26,13 +26,6 @@ const Home: NextPage = () => {
 				</a>
 			</Link>
 			<Link href="order/colombia">
-				<a>
-					<button type="button" className={style.btnPrimary}>
-						Templates - Comlombia
-					</button>
-				</a>
-			</Link>
-			<Link href="order/peru">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates - Comlombia

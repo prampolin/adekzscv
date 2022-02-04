@@ -10,8 +10,6 @@ import InputPadrao from '@/components/inputs/input_padrao'
 import Swal from 'sweetalert2'
 import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 
-import { motion } from 'framer-motion'
-
 const orderColombia = () => {
 	const orders = [
 		{
@@ -126,6 +124,7 @@ const orderColombia = () => {
 							width={30}
 							height={20}
 							title="Colombia"
+							alt=""
 						/>
 					</div>
 					<h2>ADORO</h2>
@@ -194,15 +193,15 @@ const orderColombia = () => {
 								<p>10%</p>
 							</div>
 							{/* <div className={style.item}>
-								<h4>Prazo para pagamento</h4>
-								<p>30 Dias</p>
-							</div> */}
+                                <h4>Prazo para pagamento</h4>
+                                <p>30 Dias</p>
+                            </div> */}
 						</div>
 						<div className={style.notice}>
 							<p>
 								<FiAlertTriangle />
 								"Para clientes con crédito: dentro de los 7 días
-								– corridos – siguientes a la entrega. Para
+								- corridos - siguientes a la entrega. Para
 								clientes con pago anticipado: en la fecha
 								informada por Cobb -10 días previos a
 								incubación-."
@@ -230,8 +229,8 @@ const orderColombia = () => {
 												defaultValue={e.id}
 												onChange={e => {
 													// console.log(
-													// 	(v.all[i].check =
-													// 		e.target.checked)
+													//  (v.all[i].check =
+													//      e.target.checked)
 													// )
 												}}
 											/>
