@@ -123,15 +123,15 @@ const OrderPeru = () => {
 
 	const timeToAlert = () => {
 		setTimeout(() => {
-			// Swal.fire({
-			// 	title: 'Prezado cliente!',
-			// 	text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
-			// 	icon: 'info',
-			// 	confirmButtonText: 'Fechar',
-			// 	customClass: {
-			// 		confirmButton: 'closeBtn',
-			// 	},
-			// })
+			Swal.fire({
+				title: 'Prezado cliente!',
+				text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
+				icon: 'info',
+				confirmButtonText: 'Fechar',
+				customClass: {
+					confirmButton: 'closeBtn',
+				},
+			})
 		}, 500)
 	}
 

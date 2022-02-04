@@ -46,6 +46,13 @@ const Home: NextPage = () => {
 					</button>
 				</a>
 			</Link>
+			<Link href="order/brasil_me">
+				<a>
+					<button type="button" className={style.btnPrimary}>
+						Templates - Brasil ME
+					</button>
+				</a>
+			</Link>
 		</div>
 	)
 }
