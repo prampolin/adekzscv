@@ -1,7 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 
 import style from './style.module.sass'
 
@@ -14,8 +13,6 @@ import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 import { motion } from 'framer-motion'
 
 const order = () => {
-	const router = useRouter()
-
 	const orders = [
 		{
 			id: 1,
