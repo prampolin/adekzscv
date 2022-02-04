@@ -428,7 +428,7 @@ const order = () => {
 					<InputPadrao name="delivery_comments" title="Observações" />
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_comments">observações</label>
-						<textarea id="delivery_comments" value=""></textarea>
+						<textarea id="delivery_comments"></textarea>
 					</div>
 				</div>
 				<button type="button" className={style.btnPrimary}>
