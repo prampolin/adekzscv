@@ -33,7 +33,7 @@ const OrderBrasilMi = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'In Ovo - X Selecionadas',
+			title: 'In Ovo - Selecionar',
 			slug: 'inovo',
 			all: [
 				{
@@ -70,7 +70,7 @@ const OrderBrasilMi = () => {
 		},
 		{
 			id: 2,
-			title: 'Subcutânea - X Selecionadas',
+			title: 'Subcutânea - Selecionar',
 			slug: 'subcutanea',
 			all: [
 				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
@@ -99,7 +99,7 @@ const OrderBrasilMi = () => {
 		},
 		{
 			id: 3,
-			title: 'Spray - X Selecionadas',
+			title: 'Spray - Selecionadar',
 			slug: 'spray',
 			all: [
 				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: false },
@@ -365,7 +365,7 @@ const OrderBrasilMi = () => {
 						</div>
 					</div>
 				</div>
-				<p className={style.title}>Faturamento</p>
+				<p className={style.title}>Dados para Faturamento</p>
 				<div className={style.billing}>
 					<InputPadrao
 						name="bill_company"
@@ -484,6 +484,7 @@ const OrderBrasilMi = () => {
 						name="delivery_receiver"
 						title="Contato na Granja"
 					/>
+					<InputPadrao name="delivery_nucleo" title="Núcleo" />
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_comments">Observações</label>
 						<textarea
