@@ -162,7 +162,7 @@ const order = () => {
 						<p>Cliente</p>
 						<Image src="/brazil.webp" width={30} height={20} />
 					</div>
-					<h2>AD&#39;ORO</h2>
+					<h2>{`AD'ORO`}</h2>
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Detalhes das ordens</p>
@@ -382,34 +382,38 @@ const order = () => {
 					<div className={style.formGroup}>
 						<label htmlFor="delivery_state">Estado</label>
 						<select id="delivery_state" name="state">
-							<option value="AC">Acre</option>
-							<option value="AL">Alagoas</option>
-							<option value="AP">Amapá</option>
-							<option value="AM">Amazonas</option>
-							<option value="BA">Bahia</option>
-							<option value="CE">Ceará</option>
-							<option value="DF">Distrito Federal</option>
-							<option value="ES">Espírito Santo</option>
-							<option value="GO">Goiás</option>
-							<option value="MA">Maranhão</option>
-							<option value="MT">Mato Grosso</option>
-							<option value="MS">Mato Grosso do Sul</option>
-							<option value="MG">Minas Gerais</option>
-							<option value="PA">Pará</option>
-							<option value="PB">Paraíba</option>
-							<option value="PR">Paraná</option>
-							<option value="PE">Pernambuco</option>
-							<option value="PI">Piauí</option>
-							<option value="RJ">Rio de Janeiro</option>
-							<option value="RN">Rio Grande do Norte</option>
-							<option value="RS">Rio Grande do Sul</option>
-							<option value="RO">Rondônia</option>
-							<option value="RR">Roraima</option>
-							<option value="SC">Santa Catarina</option>
-							<option value="SP">São Paulo</option>
-							<option value="SE">Sergipe</option>
-							<option value="TO">Tocantins</option>
-							<option value="EX">Estrangeiro</option>
+							<option defaultValue="AC">Acre</option>
+							<option defaultValue="AL">Alagoas</option>
+							<option defaultValue="AP">Amapá</option>
+							<option defaultValue="AM">Amazonas</option>
+							<option defaultValue="BA">Bahia</option>
+							<option defaultValue="CE">Ceará</option>
+							<option defaultValue="DF">Distrito Federal</option>
+							<option defaultValue="ES">Espírito Santo</option>
+							<option defaultValue="GO">Goiás</option>
+							<option defaultValue="MA">Maranhão</option>
+							<option defaultValue="MT">Mato Grosso</option>
+							<option defaultValue="MS">
+								Mato Grosso do Sul
+							</option>
+							<option defaultValue="MG">Minas Gerais</option>
+							<option defaultValue="PA">Pará</option>
+							<option defaultValue="PB">Paraíba</option>
+							<option defaultValue="PR">Paraná</option>
+							<option defaultValue="PE">Pernambuco</option>
+							<option defaultValue="PI">Piauí</option>
+							<option defaultValue="RJ">Rio de Janeiro</option>
+							<option defaultValue="RN">
+								Rio Grande do Norte
+							</option>
+							<option defaultValue="RS">Rio Grande do Sul</option>
+							<option defaultValue="RO">Rondônia</option>
+							<option defaultValue="RR">Roraima</option>
+							<option defaultValue="SC">Santa Catarina</option>
+							<option defaultValue="SP">São Paulo</option>
+							<option defaultValue="SE">Sergipe</option>
+							<option defaultValue="TO">Tocantins</option>
+							<option defaultValue="EX">Estrangeiro</option>
 						</select>
 					</div>
 					<InputPadrao

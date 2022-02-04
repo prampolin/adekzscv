@@ -421,9 +421,9 @@ const Delivery_report = () => {
 									Recebeu brinde? (2 Bonés e 2 Canetas)
 								</label>
 								<select id="client_gift">
-									<option value="-1">Selecione</option>
-									<option value="0">Sim</option>
-									<option value="1">Não</option>
+									<option defaultValue="-1">Selecione</option>
+									<option defaultValue="0">Sim</option>
+									<option defaultValue="1">Não</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>
@@ -434,9 +434,9 @@ const Delivery_report = () => {
 									id="client_trouble_delivery"
 									onChange={e => handleTroubleDelivery(e)}
 								>
-									<option value="-1">Selecione</option>
-									<option value="0">Sim</option>
-									<option value="1">Não</option>
+									<option defaultValue="-1">Selecione</option>
+									<option defaultValue="0">Sim</option>
+									<option defaultValue="1">Não</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>
@@ -483,9 +483,9 @@ const Delivery_report = () => {
 									Transbordo para outro veículo?
 								</label>
 								<select id="drive_transhipment">
-									<option value="-1">Selecione</option>
-									<option value="0">Não</option>
-									<option value="1">Sim</option>
+									<option defaultValue="-1">Selecione</option>
+									<option defaultValue="0">Não</option>
+									<option defaultValue="1">Sim</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>
@@ -493,9 +493,9 @@ const Delivery_report = () => {
 									Transporte utilizando aeronave?
 								</label>
 								<select id="drive_aircraft">
-									<option value="-1">Selecione</option>
-									<option value="0">Não</option>
-									<option value="1">Sim</option>
+									<option defaultValue="-1">Selecione</option>
+									<option defaultValue="0">Não</option>
+									<option defaultValue="1">Sim</option>
 								</select>
 							</div>
 							<p className={style.titleInternal}>
@@ -538,9 +538,9 @@ const Delivery_report = () => {
 									Motorista acompanhou a contagem?
 								</label>
 								<select id="drive_download_check_amount">
-									<option value="-1">Selecione</option>
-									<option value="0">Não</option>
-									<option value="1">Sim</option>
+									<option defaultValue="-1">Selecione</option>
+									<option defaultValue="0">Não</option>
+									<option defaultValue="1">Sim</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>

@@ -12,7 +12,7 @@ import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 
 import { motion } from 'framer-motion'
 
-const order = () => {
+const orderColombia = () => {
 	const orders = [
 		{
 			id: 1,
@@ -128,7 +128,7 @@ const order = () => {
 							title="Colombia"
 						/>
 					</div>
-					<h2>AD&#39;ORO</h2>
+					<h2>{`AD'ORO`}</h2>
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Detalhes das ordens</p>
@@ -443,4 +443,4 @@ const order = () => {
 	)
 }
 
-export default order
+export default orderColombia
