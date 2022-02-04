@@ -108,7 +108,7 @@ const Delivery_report = () => {
 	}
 
 	const handleTroubleDelivery = (e: any) => {
-		if (e.target.value == '0') {
+		if (Number(e.target.value) == 1) {
 			setTroubleDelivery(true)
 		} else {
 			setTroubleDelivery(false)
@@ -153,6 +153,14 @@ const Delivery_report = () => {
 							<li>
 								<p>Carga / Pedido</p>
 								<h4>2810/21-M</h4>
+							</li>
+							<li>
+								<button
+									type="button"
+									className={style.btnPrimary}
+								>
+									Adicionar + Carga / Pedido
+								</button>
 							</li>
 							<li>
 								<p>Data Expedição</p>
@@ -426,8 +434,8 @@ const Delivery_report = () => {
 								</label>
 								<select id="client_gift">
 									<option defaultValue="-1">Selecione</option>
-									<option defaultValue="0">Sim</option>
-									<option defaultValue="1">Não</option>
+									<option defaultValue="0">Não</option>
+									<option defaultValue="1">Sim</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>
@@ -438,15 +446,18 @@ const Delivery_report = () => {
 									id="client_trouble_delivery"
 									onChange={e => handleTroubleDelivery(e)}
 								>
-									<option defaultValue="-1">Selecione</option>
-									<option defaultValue="0">Sim</option>
-									<option defaultValue="1">Não</option>
+									<option value="-1">Selecione</option>
+									<option value="0">Não</option>
+									<option value="1">Sim</option>
 								</select>
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="client_coment">
 									Observações {troubleDelivery && '*'}
 								</label>
+
+								{console.log('A merda ', troubleDelivery)}
+
 								<textarea
 									id="client_coment"
 									rows={5}
@@ -581,29 +592,6 @@ const Delivery_report = () => {
 								type="date"
 							/>
 							<InputPadrao name="drive_plate" title="Placa" />
-
-							{/* <div className={style.options}>
-								<div className={style.item}>
-									<input
-										id="climsystem"
-										type="checkbox"
-										onChange={e => {}}
-									/>
-
-									<label htmlFor="climsystem">
-										Climsystem
-									</label>
-								</div>
-								<div className={style.item}>
-									<input
-										id="smithaway"
-										type="checkbox"
-										onChange={e => {}}
-									/>
-
-									<label htmlFor="smithaway">Smithaway</label>
-								</div>
-							</div> */}
 						</div>
 						<div className={style.actions}>
 							<button className={style.btnOutlinePrimary}>
