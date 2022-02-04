@@ -11,7 +11,7 @@ const Home: NextPage = () => {
 			<div style={{ marginBottom: 130, marginTop: 130 }}>
 				<Image src="/logo.svg" width={80} height={60} />
 			</div>
-			<Link href="delivery_report">
+			<Link href="/delivery_report">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Questionário
