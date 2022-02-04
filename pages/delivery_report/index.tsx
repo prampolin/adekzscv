@@ -15,7 +15,6 @@ import {
 
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
-import Select from '@/components/inputs/select'
 
 const line = [
 	{ id: 0, name: 'Cobb500', title: 'Cobb 500', valueoption: '1' },

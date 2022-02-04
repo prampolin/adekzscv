@@ -128,7 +128,7 @@ const orderColombia = () => {
 							title="Colombia"
 						/>
 					</div>
-					<h2>{"AD'ORO"}</h2>
+					<h2>ADORO</h2>
 				</div>
 				<div className={style.dataOrder}>
 					<p className={style.title}>Detalhes das ordens</p>
