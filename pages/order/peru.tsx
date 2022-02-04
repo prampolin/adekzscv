@@ -55,12 +55,12 @@ const OrderPeru = () => {
 		},
 		{
 			id: 2,
-			title: 'Coccidiose',
+			title: 'Coccidiose - Selecionar',
 			slug: 'coccidiose',
 			all: [
 				{
 					id: 1,
-					vaccine: 'BIO COCCIVET R (COCCIODIOSE - Selecionar)',
+					vaccine: 'BIO COCCIVET R (COCCIODIOSE)',
 					check: true,
 				},
 				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
@@ -518,7 +518,6 @@ const OrderPeru = () => {
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
 						Confirmar e Enviar
-						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
 					</button>
 					<button className={style.btnPrimary}>
 						Recusar e avisar a COBB

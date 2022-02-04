@@ -474,7 +474,6 @@ const OrderColombia = () => {
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
 						Confirmar e Enviar
-						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
 					</button>
 					<button className={style.btnPrimary}>
 						Recusar e avisar a COBB

@@ -102,7 +102,11 @@ const OrderBrasilMi = () => {
 			title: 'Spray - Selecionadar',
 			slug: 'spray',
 			all: [
-				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: false },
+				{
+					id: 1,
+					vaccine: 'BIO COCCIVET R (COCCIODIOSE)',
+					check: false,
+				},
 				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
 				{ id: 3, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: false },
 				{ id: 4, vaccine: 'POULTRYSTAR (PROBIÓTICO)', check: false },
@@ -178,7 +182,7 @@ const OrderBrasilMi = () => {
 					<h2>AD&#39;ORO</h2>
 				</div>
 				<div className={style.dataOrder}>
-					<p className={style.title}>Detalhes das ordens</p>
+					<p className={style.title}>Detalhe das ordens</p>
 					<div className={style.card}>
 						{orders.map((o, i) => {
 							return (
@@ -243,14 +247,14 @@ const OrderBrasilMi = () => {
 								<p>30 Dias</p>
 							</div>
 						</div>
-						<div className={style.notice}>
+						{/* <div className={style.notice}>
 							<p>
 								<FiAlertTriangle />
 								Na hipótese de inadimplemento, a Cobb poderá, a
 								seu exclusivo critério, suspender o fornecimento
 								das aves.
 							</p>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<p className={style.title}>Vacinas</p>
@@ -493,17 +497,26 @@ const OrderBrasilMi = () => {
 							style={{ height: 'auto' }}
 						></textarea>
 					</div>
+					<button className={style.btnPrimary}>
+						Adicionar local de entrega
+					</button>
 				</div>
-				<button className={style.btnPrimary}>
-					Adicionar local de entrega
-				</button>
+				<div className={style.delivery} style={{ marginTop: 16 }}>
+					<InputPadrao
+						name="people_form"
+						title="Nome da pessoa que validou este formulário"
+					/>
+					<InputPadrao
+						name="people_job_role"
+						title="Cargo da pessoa que validou este formulário"
+					/>
+				</div>
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
-						Salvar
-						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
+						Confirmar e Enviar
 					</button>
 					<button className={style.btnPrimary}>
-						Finalizar e Enviar
+						Recusar e avisar a COBB
 					</button>
 				</div>
 			</div>
