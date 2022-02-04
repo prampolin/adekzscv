@@ -427,7 +427,7 @@ const orderColombia = () => {
 				</div>
 				<button type="button" className={style.btnPrimary}>
 					<FiPlus strokeWidth={3} />
-					&nbsp; Adicionar local de entrega
+					Adicionar local de entrega
 				</button>
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
