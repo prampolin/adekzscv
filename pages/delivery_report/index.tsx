@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { NextPage } from 'next'
 
 import Head from 'next/head'
 import Image from 'next/image'
@@ -96,6 +97,26 @@ const state = [
 const Delivery_report = () => {
 	const [tab, setTab] = useState('client')
 	const [seeClient, setSeeClient] = useState(true)
+	const [showPercent, setShowPercent] = useState(false)
+	const [troubleDelivery, setTroubleDelivery] = useState(false)
+
+	const handlePercent = (e: any) => {
+		if (e.target.value == '1') {
+			setShowPercent(true)
+		} else {
+			setShowPercent(false)
+		}
+	}
+
+	const handleTroubleDelivery = (e: any) => {
+		if (e.target.value == '0') {
+			setTroubleDelivery(true)
+		} else {
+			setTroubleDelivery(false)
+		}
+	}
+
+	useEffect(() => {}, [troubleDelivery])
 
 	return (
 		<>
@@ -157,11 +178,11 @@ const Delivery_report = () => {
 							</li>
 							<li>
 								<p>Solicitado</p>
-								<h4>3640</h4>
+								<h4>3.640</h4>
 							</li>
 							<li>
 								<p>Enviado</p>
-								<h4>3713</h4>
+								<h4>3.713</h4>
 							</li>
 						</ul>
 						<ul className={style.line}>
@@ -171,11 +192,11 @@ const Delivery_report = () => {
 							</li>
 							<li>
 								<p>Solicitado</p>
-								<h4>20000</h4>
+								<h4>20.000</h4>
 							</li>
 							<li>
 								<p>Enviado</p>
-								<h4>20800</h4>
+								<h4>20.800</h4>
 							</li>
 						</ul>
 						{seeClient ? (
@@ -247,17 +268,22 @@ const Delivery_report = () => {
 								<label htmlFor="client_count_box">
 									Contagem das caixas?
 								</label>
-								<select id="client_count_box">
+								<select
+									id="client_count_box"
+									onChange={e => handlePercent(e)}
+								>
 									<option value="-1">Selecione</option>
 									<option value="0">Não</option>
 									<option value="1">Sim</option>
 								</select>
 							</div>
-							<InputPadrao
-								name="client_percentage"
-								title="Porcentagem"
-								type="number"
-							/>
+							{showPercent && (
+								<InputPadrao
+									name="client_percentage"
+									title="Porcentagem"
+									type="number"
+								/>
+							)}
 							<div className={style.formGroup}>
 								<label htmlFor="client_correct_amount">
 									Quantidade confere?
@@ -269,7 +295,7 @@ const Delivery_report = () => {
 								</select>
 							</div>
 							<p className={style.titleInternal}>
-								Número de aves
+								Número de aves / círculo
 							</p>
 							<div className={style.contentRow}>
 								<InputPadrao
@@ -312,36 +338,6 @@ const Delivery_report = () => {
 								</select>
 							</div>
 							<p className={style.titleInternal}>
-								Mortalidade na Chegada (CobbMale)
-							</p>
-							<div className={style.contentRow}>
-								<InputPadrao
-									name="client_amount_die_female"
-									title="Fêmeas"
-									type="number"
-								/>
-								<InputPadrao
-									name="client_amount_die_male"
-									title="Macho"
-									type="number"
-								/>
-							</div>
-							<p className={style.titleInternal}>
-								Mortalidade na Chegada (500SF)
-							</p>
-							<div className={style.contentRow}>
-								<InputPadrao
-									name="client_amount_die_female"
-									title="Fêmeas"
-									type="number"
-								/>
-								<InputPadrao
-									name="client_amount_die_male"
-									title="Macho"
-									type="number"
-								/>
-							</div>
-							<p className={style.titleInternal}>
 								Pintos coletados para laboratório
 							</p>
 							<div className={style.contentRow}>
@@ -355,6 +351,27 @@ const Delivery_report = () => {
 									title="Macho"
 									type="number"
 								/>
+							</div>
+							<p className={style.titleInternal}>
+								Mortalidade na Chegada
+							</p>
+							<div className={style.contentRow}>
+								<div>
+									<InputPadrao
+										name="client_amount_die_female"
+										title="Total"
+										type="number"
+									/>
+									<p style={{ textAlign: 'right' }}>0%</p>
+								</div>
+								<div>
+									<InputPadrao
+										name="client_amount_die_male"
+										title="Macho"
+										type="number"
+									/>
+									<p style={{ textAlign: 'right' }}>0%</p>
+								</div>
 							</div>
 							<div className={style.notice}>
 								<p>
@@ -410,8 +427,21 @@ const Delivery_report = () => {
 								</select>
 							</div>
 							<div className={style.formGroup}>
+								<label htmlFor="client_trouble_delivery">
+									Problema na entrega
+								</label>
+								<select
+									id="client_trouble_delivery"
+									onChange={e => handleTroubleDelivery(e)}
+								>
+									<option value="-1">Selecione</option>
+									<option value="0">Sim</option>
+									<option value="1">Não</option>
+								</select>
+							</div>
+							<div className={style.formGroup}>
 								<label htmlFor="client_coment">
-									Observações
+									Observações {troubleDelivery && '*'}
 								</label>
 								<textarea
 									id="client_coment"
@@ -445,7 +475,7 @@ const Delivery_report = () => {
 							/>
 							<InputPadrao
 								name="drive_total_time"
-								title="Tempo de Viagem"
+								title="Tempo de viagem do incubatório até o cliente"
 								type="text"
 							/>
 							<div className={style.formGroup}>
@@ -485,7 +515,7 @@ const Delivery_report = () => {
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="drive_download_cargo">
-									Motorista Realizou?
+									Motorista Realizou Descarregamento?
 								</label>
 								<select id="drive_download_cargo">
 									<option value="-1">Selecione</option>
@@ -548,7 +578,7 @@ const Delivery_report = () => {
 							/>
 							<InputPadrao name="drive_plate" title="Placa" />
 
-							<div className={style.options}>
+							{/* <div className={style.options}>
 								<div className={style.item}>
 									<input
 										id="climsystem"
@@ -569,11 +599,14 @@ const Delivery_report = () => {
 
 									<label htmlFor="smithaway">Smithaway</label>
 								</div>
-							</div>
+							</div> */}
 						</div>
 						<div className={style.actions}>
 							<button className={style.btnOutlinePrimary}>
-								Salvar
+								Salvar{' '}
+								<small style={{ marginLeft: 5 }}>
+									(Sem enviar)
+								</small>
 							</button>
 							<button className={style.btnPrimary}>
 								Finalizar e Enviar

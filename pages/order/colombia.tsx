@@ -9,7 +9,7 @@ import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
 
 import Swal from 'sweetalert2'
-import { FiAlertTriangle, FiChevronDown } from 'react-icons/fi'
+import { FiAlertTriangle, FiChevronDown, FiPlus } from 'react-icons/fi'
 
 import { motion } from 'framer-motion'
 
@@ -36,13 +36,13 @@ const order = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'In Ovo - X Selecionadas',
+			title: 'Vacinas',
 			slug: 'inovo',
 			all: [
 				{
 					id: 1,
-					vaccine: 'BDA BLEN (GUMBORO)',
-					check: false,
+					vaccine: 'Vacinação Marek',
+					check: true,
 					options: [
 						{
 							id: 1,
@@ -53,42 +53,14 @@ const order = () => {
 						},
 					],
 				},
-				{ id: 2, vaccine: 'BOUBA SUAVE', check: false },
-				{ id: 3, vaccine: 'HVT', check: false },
-				{ id: 4, vaccine: 'RISPENS', check: false },
-				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
-				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
-				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
-				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
-				{ id: 9, vaccine: 'HVT+SB1', check: false },
-				{ id: 10, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: false },
-				{ id: 11, vaccine: 'VAXXITEK (HVT+IBD)', check: false },
-				{ id: 12, vaccine: 'VECTORMUNE HVT LT (HVT+LT)', check: false },
-				{
-					id: 13,
-					vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)',
-					check: false,
-				},
-			],
-		},
-		{
-			id: 2,
-			title: 'Subcutânea - X Selecionadas',
-			slug: 'subcutanea',
-			all: [
-				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
-				{ id: 2, vaccine: 'BOUBA SUAVE', check: false },
-				{ id: 3, vaccine: 'HVT', check: false },
-				{ id: 4, vaccine: 'RISPENS', check: false },
-				{ id: 5, vaccine: 'HVT+RISPENS', check: false },
-				{ id: 6, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
-				{ id: 7, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
-				{ id: 8, vaccine: 'MB -1 (M.B)', check: false },
-				{
-					id: 9,
-					vaccine: 'NOBILIS REO 2177 (REOVIRUS AVIARIO)',
-					check: false,
-				},
+				{ id: 2, vaccine: 'BDA BLEN (GUMBORO)', check: false },
+				{ id: 3, vaccine: 'BOUBA SUAVE', check: false },
+				{ id: 4, vaccine: 'HVT', check: false },
+				{ id: 5, vaccine: 'RISPENS', check: false },
+				{ id: 6, vaccine: 'HVT+RISPENS', check: false },
+				{ id: 7, vaccine: 'INNOVAX ND IBD (HVT+ND+IBD)', check: false },
+				{ id: 8, vaccine: 'INNOVAX ND ILT (HVT+ND+ILT)', check: false },
+				{ id: 9, vaccine: 'MB -1 (M.B)', check: false },
 				{ id: 10, vaccine: 'HVT+SB1', check: false },
 				{ id: 11, vaccine: 'TRANSMUNE GUMBORO (IBD)', check: false },
 				{ id: 12, vaccine: 'VAXXITEK (HVT+IBD)', check: false },
@@ -96,19 +68,8 @@ const order = () => {
 				{
 					id: 14,
 					vaccine: 'VECTORMUNE HVT NDV (HVT+NDV)',
-					check: false,
+					check: true,
 				},
-			],
-		},
-		{
-			id: 3,
-			title: 'Spray - X Selecionadas',
-			slug: 'spray',
-			all: [
-				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: false },
-				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
-				{ id: 3, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: false },
-				{ id: 4, vaccine: 'POULTRYSTAR (PROBIÓTICO)', check: false },
 			],
 		},
 	]
@@ -135,17 +96,17 @@ const order = () => {
 	]
 
 	const timeToAlert = () => {
-		setTimeout(() => {
-			Swal.fire({
-				title: 'Prezado cliente!',
-				text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
-				icon: 'info',
-				confirmButtonText: 'Fechar',
-				customClass: {
-					confirmButton: 'closeBtn',
-				},
-			})
-		}, 500)
+		// setTimeout(() => {
+		// 	Swal.fire({
+		// 		title: 'Prezado cliente!',
+		// 		text: 'Gostaríamos de informar as datas e quantidades de matrizes Cobb 500 Slow, provenientes de plantéis livres de Mycoplasma (gallisepticum, synoviae) e Salmonella (Gallinarum, Pullorum, Enteritidis e Typhimurium).',
+		// 		icon: 'info',
+		// 		confirmButtonText: 'Fechar',
+		// 		customClass: {
+		// 			confirmButton: 'closeBtn',
+		// 		},
+		// 	})
+		// }, 500)
 	}
 
 	return (
@@ -163,7 +124,12 @@ const order = () => {
 				<div className={style.dataClient}>
 					<div className={style.labelFlag}>
 						<p>Cliente</p>
-						<Image src="/brazil.webp" width={30} height={20} />
+						<Image
+							src="/colombia.webp"
+							width={30}
+							height={20}
+							title="Colombia"
+						/>
 					</div>
 					<h2>AD&#39;ORO</h2>
 				</div>
@@ -202,12 +168,12 @@ const order = () => {
 								Preço Base das Fêmeas
 							</h4>
 							<div className={style.thead}>
-								<h4>Preço Tabela Liq. De Impostos *</h4>
-								<h4>Preço Líquido com Desconto</h4>
+								<h4>Reproductoras Cobb Hembras</h4>
+								{/* <h4>Preço Líquido com Desconto</h4> */}
 							</div>
 							<div className={style.tbody}>
 								<p>R$ 26,50</p>
-								<p>R$ 23,85</p>
+								{/* <p>R$ 23,85</p> */}
 							</div>
 						</div>
 						<div className={style.content}>
@@ -215,30 +181,34 @@ const order = () => {
 								Preço Base dos Machos
 							</h4>
 							<div className={style.thead}>
-								<h4>Preço Tabela Liq. De Impostos *</h4>
-								<h4>Preço Líquido com Desconto</h4>
+								<h4>Reproductores Cobb Machos</h4>
+								{/* <h4>Preço Líquido com Desconto</h4> */}
 							</div>
 							<div className={style.tbody}>
 								<p>R$ 53,00</p>
-								<p>R$ 47,70</p>
+								{/* <p>R$ 47,70</p> */}
 							</div>
 						</div>
+						<div>Condición de Pago Especial</div>
+						<br />
 						<div className={style.off}>
 							<div className={style.item}>
 								<h4>Desconto</h4>
 								<p>10%</p>
 							</div>
-							<div className={style.item}>
+							{/* <div className={style.item}>
 								<h4>Prazo para pagamento</h4>
 								<p>30 Dias</p>
-							</div>
+							</div> */}
 						</div>
 						<div className={style.notice}>
 							<p>
 								<FiAlertTriangle />
-								Na hipótese de inadimplemento, a Cobb poderá, a
-								seu exclusivo critério, suspender o fornecimento
-								das aves.
+								"Para clientes con crédito: dentro de los 7 días
+								– corridos – siguientes a la entrega. Para
+								clientes con pago anticipado: en la fecha
+								informada por Cobb -10 días previos a
+								incubación-."
 							</p>
 						</div>
 					</div>
@@ -355,21 +325,39 @@ const order = () => {
 						</div>
 					</div>
 				</div>
-				<p className={style.title}>Faturamento</p>
-				<div className={style.billing}>
-					<InputPadrao name="bill_company" title="Empresa" />
-
-					<InputPadrao name="bill_id" title="CNPJ/CPF" />
-
-					<InputPadrao
-						name="bill_sub_state"
-						title="Inscrição Estadual"
-					/>
-
-					<InputPadrao name="bill_nucleo" title="Núcleo" />
+				<div className={style.dataOrder}>
+					<p className={style.title}>Faturamento</p>
+					<div className={style.card}>
+						<div className={style.item}>
+							<h4>Empresa</h4>
+							<p
+								style={{
+									fontSize: '0.9rem',
+									marginBottom: 10,
+									marginTop: 4,
+									color: '#0009',
+								}}
+							>
+								AD ORO COMPANY CO
+							</p>
+						</div>
+						<div className={style.item}>
+							<h4>CNPJ</h4>
+							<p
+								style={{
+									fontSize: '0.9rem',
+									marginBottom: 10,
+									marginTop: 4,
+									color: '#0009',
+								}}
+							>
+								000.000.000/0000-00
+							</p>
+						</div>
+					</div>
 				</div>
 
-				<p className={style.title}>Entrega com Remessa</p>
+				<p className={style.title}>Dados para Entrega com Remessa</p>
 				<div className={style.delivery}>
 					<InputPadrao name="delivery_company" title="Empresa" />
 					<InputPadrao name="delivery_id" title="CNPJ/CPF" />
@@ -423,16 +411,36 @@ const order = () => {
 						name="delivery_receiver"
 						title="Contato na Granja"
 					/>
-					<InputPadrao name="delivery_nucleo" title="Núcleo" />
-					<InputPadrao name="delivery_comments" title="Observações" />
 					<div className={style.formGroup}>
-						<label htmlFor="delivery_comments">observações</label>
-						<textarea id="delivery_comments" value=""></textarea>
+						<label htmlFor="delivery_comments">Observações</label>
+						<textarea
+							id="delivery_comments"
+							rows={5}
+							style={{ height: 'auto' }}
+						></textarea>
 					</div>
+					<InputPadrao
+						name="people_form"
+						title="Nome da pessoa que validou este formulário"
+					/>
+					<InputPadrao
+						name="people_job_role"
+						title="Cargo da pessoa que validou este formulário"
+					/>
 				</div>
 				<button type="button" className={style.btnPrimary}>
-					Confirmar e enviar
+					<FiPlus strokeWidth={3} />
+					&nbsp; Adicionar local de entrega
 				</button>
+				<div className={style.actions}>
+					<button className={style.btnPrimary}>
+						Salvar{' '}
+						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
+					</button>
+					<button className={style.btnPrimary}>
+						Finalizar e Enviar
+					</button>
+				</div>
 			</div>
 		</>
 	)
