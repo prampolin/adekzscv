@@ -124,7 +124,7 @@ const OrderColombia = () => {
 					<h2>AD&#39;ORO</h2>
 				</div>
 				<div className={style.dataOrder}>
-					<p className={style.title}>Detalhes das ordens</p>
+					<p className={style.title}>Detalhe das ordens</p>
 					<div className={style.card}>
 						{orders.map((o, i) => {
 							return (

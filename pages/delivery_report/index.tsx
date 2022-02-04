@@ -98,6 +98,7 @@ const Delivery_report = () => {
 	const [seeClient, setSeeClient] = useState(true)
 	const [showPercent, setShowPercent] = useState(false)
 	const [troubleDelivery, setTroubleDelivery] = useState(false)
+	const [incubUnit, setIncubUnit] = useState(false)
 
 	const handlePercent = (e: any) => {
 		if (e.target.value == '1') {
@@ -113,6 +114,10 @@ const Delivery_report = () => {
 		} else {
 			setTroubleDelivery(false)
 		}
+	}
+
+	const handleIncubUnit = () => {
+		setIncubUnit(true)
 	}
 
 	useEffect(() => {}, [troubleDelivery])
@@ -140,7 +145,7 @@ const Delivery_report = () => {
 								alt=""
 							/>
 						</div>
-						<h2>ADORO</h2>
+						<h2>AD&#39;ORO</h2>
 						<ul>
 							<li>
 								<p>Departamento</p>
@@ -154,10 +159,20 @@ const Delivery_report = () => {
 								<p>Carga / Pedido</p>
 								<h4>2810/21-M</h4>
 							</li>
+							{incubUnit && (
+								<li>
+									<InputPadrao
+										name="incub_unit"
+										title="Unidade (incubatório)"
+										type="text"
+									/>
+								</li>
+							)}
 							<li>
 								<button
 									type="button"
 									className={style.btnPrimary}
+									onClick={() => handleIncubUnit()}
 								>
 									Adicionar + Carga / Pedido
 								</button>
@@ -455,9 +470,6 @@ const Delivery_report = () => {
 								<label htmlFor="client_coment">
 									Observações {troubleDelivery && '*'}
 								</label>
-
-								{console.log('A merda ', troubleDelivery)}
-
 								<textarea
 									id="client_coment"
 									rows={5}

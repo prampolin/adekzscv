@@ -18,13 +18,13 @@ const Home: NextPage = () => {
 					</button>
 				</a>
 			</Link>
-			<Link href="order">
+			{/* <Link href="order">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates
 					</button>
 				</a>
-			</Link>
+			</Link> */}
 			<Link href="order/colombia">
 				<a>
 					<button type="button" className={style.btnPrimary}>
