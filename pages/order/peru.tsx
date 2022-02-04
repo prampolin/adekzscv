@@ -31,7 +31,7 @@ const OrderPeru = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'Vacinas Marek - Selecionar',
+			title: 'Vacinação Marek - Selecionar',
 			slug: 'inovo',
 			all: [
 				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
@@ -58,14 +58,18 @@ const OrderPeru = () => {
 			title: 'Coccidiose',
 			slug: 'coccidiose',
 			all: [
-				{ id: 1, vaccine: 'BIO COCCIVET R (COCCIODIOSE', check: true },
+				{
+					id: 1,
+					vaccine: 'BIO COCCIVET R (COCCIODIOSE - Selecionar)',
+					check: true,
+				},
 				{ id: 2, vaccine: 'EVALON (COCCIDIOSE)', check: false },
 				{ id: 3, vaccine: 'LIVACOCC', check: false },
 			],
 		},
 		{
 			id: 3,
-			title: 'Adicionadas',
+			title: 'Adicionadas - Selecionar',
 			slug: 'adicionadas',
 			all: [
 				{ id: 1, vaccine: 'FLORAMAX B11 (PROBIÓTICO)', check: true },
@@ -155,7 +159,7 @@ const OrderPeru = () => {
 					<h2>AD&#39;ORO</h2>
 				</div>
 				<div className={style.dataOrder}>
-					<p className={style.title}>Detalhes das ordens</p>
+					<p className={style.title}>Detalhe das ordens</p>
 					<div className={style.card}>
 						{orders.map((o, i) => {
 							return (
@@ -479,22 +483,6 @@ const OrderPeru = () => {
 							<option defaultValue="EX">Estrangeiro</option>
 						</select>
 					</div>
-					<InputPadrao
-						name="delivery_reference"
-						title="Ponto de Referência"
-					/>
-					<InputPadrao
-						name="delivery_receiver"
-						title="Contato na Granja"
-					/>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_comments">Observações</label>
-						<textarea
-							id="delivery_comments"
-							rows={5}
-							style={{ height: 'auto' }}
-						></textarea>
-					</div>
 
 					<InputPadrao
 						name="delivery_reference"
@@ -529,11 +517,11 @@ const OrderPeru = () => {
 				</div>
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
-						Salvar
+						Confirmar e Enviar
 						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
 					</button>
 					<button className={style.btnPrimary}>
-						Finalizar e Enviar
+						Recusar e avisar a COBB
 					</button>
 				</div>
 			</div>

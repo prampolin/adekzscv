@@ -31,7 +31,7 @@ const OrderColombia = () => {
 	const vaccines = [
 		{
 			id: 1,
-			title: 'Vacinas Marek - Selecionar',
+			title: 'Vacinação Marek - Selecionar',
 			slug: 'inovo',
 			all: [
 				{ id: 1, vaccine: 'BDA BLEN (GUMBORO)', check: false },
@@ -439,22 +439,6 @@ const OrderColombia = () => {
 							<option defaultValue="EX">Estrangeiro</option>
 						</select>
 					</div>
-					<InputPadrao
-						name="delivery_reference"
-						title="Ponto de Referência"
-					/>
-					<InputPadrao
-						name="delivery_receiver"
-						title="Contato na Granja"
-					/>
-					<div className={style.formGroup}>
-						<label htmlFor="delivery_comments">Observações</label>
-						<textarea
-							id="delivery_comments"
-							rows={5}
-							style={{ height: 'auto' }}
-						></textarea>
-					</div>
 
 					<InputPadrao
 						name="delivery_reference"
@@ -489,11 +473,11 @@ const OrderColombia = () => {
 				</div>
 				<div className={style.actions}>
 					<button className={style.btnPrimary}>
-						Salvar
+						Confirmar e Enviar
 						<small style={{ marginLeft: 5 }}>(Sem enviar)</small>
 					</button>
 					<button className={style.btnPrimary}>
-						Finalizar e Enviar
+						Recusar e avisar a COBB
 					</button>
 				</div>
 			</div>
