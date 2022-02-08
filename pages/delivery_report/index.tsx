@@ -98,7 +98,7 @@ const Delivery_report = () => {
 	const [seeClient, setSeeClient] = useState(true)
 	const [showPercent, setShowPercent] = useState(false)
 	const [troubleDelivery, setTroubleDelivery] = useState(false)
-	const [incubUnit, setIncubUnit] = useState(false)
+	const [incubUnit, setIncubUnit] = useState<Array<string | number>>([])
 
 	const handlePercent = (e: any) => {
 		if (e.target.value == '1') {
@@ -117,7 +117,7 @@ const Delivery_report = () => {
 	}
 
 	const handleIncubUnit = () => {
-		setIncubUnit(true)
+		setIncubUnit([...incubUnit, incubUnit.push(1)])
 	}
 
 	useEffect(() => {}, [troubleDelivery])
@@ -148,8 +148,8 @@ const Delivery_report = () => {
 						<h2>AD&#39;ORO</h2>
 						<ul>
 							<li>
-								<p>Departamento</p>
-								<h4>Nome do Departamento</h4>
+								<p>Estado</p>
+								<h4>Nome do Estado</h4>
 							</li>
 							<li>
 								<p>Cidade / Estado</p>
@@ -159,22 +159,32 @@ const Delivery_report = () => {
 								<p>Carga / Pedido</p>
 								<h4>2810/21-M</h4>
 							</li>
-							{incubUnit && (
-								<li>
-									<InputPadrao
-										name="incub_unit"
-										title="Unidade (incubatório)"
-										type="text"
-									/>
-								</li>
-							)}
+							<li>
+								<p>Unidade / incubatório</p>
+								<h4>COBB - Guapiaçu</h4>
+							</li>
+
+							{incubUnit.length > 0 &&
+								incubUnit.map((item: any, i: number) => (
+									<li
+										key={i}
+										className={style.content}
+										style={{ paddingBottom: 4 }}
+									>
+										<InputPadrao
+											name="incub_unit"
+											title="Unidade / incubatório"
+											type="text"
+										/>
+									</li>
+								))}
 							<li>
 								<button
 									type="button"
 									className={style.btnPrimary}
 									onClick={() => handleIncubUnit()}
 								>
-									Adicionar + Carga / Pedido
+									Adicionar + Unidade Incubatório
 								</button>
 							</li>
 							<li>
@@ -327,7 +337,7 @@ const Delivery_report = () => {
 							<div className={style.contentRow}>
 								<InputPadrao
 									name="client_amount_female"
-									title="Fêmeas"
+									title="Fêmea"
 									type="number"
 								/>
 								<InputPadrao
@@ -370,7 +380,7 @@ const Delivery_report = () => {
 							<div className={style.contentRow}>
 								<InputPadrao
 									name="client_amount_lab_female"
-									title="Fêmeas"
+									title="Fêmea"
 									type="number"
 								/>
 								<InputPadrao
@@ -386,7 +396,7 @@ const Delivery_report = () => {
 								<div>
 									<InputPadrao
 										name="client_amount_die_female"
-										title="Total"
+										title="Fêmea"
 										type="number"
 									/>
 									<p style={{ textAlign: 'right' }}>0%</p>
@@ -497,13 +507,13 @@ const Delivery_report = () => {
 							/>
 							<InputPadrao
 								name="drive_km_route"
-								title="Distância Percorrida em KM (do Incub ao Cliente)"
+								title="Distância Percorrida em KM (do incubatório ao Cliente)"
 								type="number"
 							/>
 							<InputPadrao
 								name="drive_total_time"
 								title="Tempo de viagem do incubatório até o cliente"
-								type="text"
+								type="time"
 							/>
 							<div className={style.formGroup}>
 								<label htmlFor="drive_transhipment">

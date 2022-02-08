@@ -121,11 +121,18 @@ const OrderPeru = () => {
 				customClass: {
 					confirmButton: 'closeBtn',
 				},
+			}).then(result => {
+				if (result.isConfirmed) {
+					setMessage(false)
+				} else {
+					setMessage(false)
+				}
 			})
 		}, 500)
 	}
 
 	const [equal, setEqual] = useState(false)
+	const [message, setMessage] = useState(true)
 
 	const handleEqual = (e: any) => {
 		return e.target.value == '1' ? setEqual(true) : setEqual(false)
@@ -133,13 +140,15 @@ const OrderPeru = () => {
 
 	useEffect(() => {}, [equal])
 
+	useEffect(() => {
+		timeToAlert()
+	}, [])
+
 	return (
 		<>
 			<Head>
 				<title>Confirmação do Pedido</title>
 			</Head>
-
-			{timeToAlert()}
 
 			<Menu />
 
