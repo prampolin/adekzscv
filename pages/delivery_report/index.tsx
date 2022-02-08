@@ -16,6 +16,9 @@ import {
 import Menu from '@/components/menu'
 import InputPadrao from '@/components/inputs/input_padrao'
 
+import InputMask from 'react-input-mask'
+import Time from '@/components/time'
+
 const line = [
 	{ id: 0, name: 'Cobb500', title: 'Cobb 500', valueoption: '1' },
 	{ id: 1, name: 'Cobb700', title: 'Cobb 700', valueoption: '2' },
@@ -290,16 +293,8 @@ const Delivery_report = () => {
 								Horário de Chegada
 							</p>
 							<div className={style.contentRow}>
-								<InputPadrao
-									type="time"
-									name="client_meet_point"
-									title="Ponto de Encontro"
-								/>
-								<InputPadrao
-									name="client_farm"
-									title="Granja"
-									type="time"
-								/>
+								<Time etiqueta="Ponto de Encontro" />
+								<Time etiqueta="Granja" />
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="client_count_box">
@@ -500,21 +495,23 @@ const Delivery_report = () => {
 				{tab == 'driver' && (
 					<>
 						<div className={`${style.card} ${style.straightRight}`}>
-							<InputPadrao
+							{/* <InputPadrao
 								name="drive_hour_expedition"
 								title="Horário de Expedição"
 								type="time"
-							/>
+							/> */}
+							<Time etiqueta="Horário de Expedição" />
 							<InputPadrao
 								name="drive_km_route"
 								title="Distância Percorrida em KM (do incubatório ao Cliente)"
 								type="number"
 							/>
-							<InputPadrao
+							{/* <InputPadrao
 								name="drive_total_time"
 								title="Tempo de viagem do incubatório até o cliente"
 								type="time"
-							/>
+							/> */}
+							<Time etiqueta="Tempo de viagem do incubatório até o cliente" />
 							<div className={style.formGroup}>
 								<label htmlFor="drive_transhipment">
 									Transbordo para outro veículo?
@@ -539,16 +536,18 @@ const Delivery_report = () => {
 								Descarregamento
 							</p>
 							<div className={style.contentRow}>
-								<InputPadrao
+								{/* <InputPadrao
 									name="drive_hour_download_start"
 									title="Início"
 									type="time"
-								/>
-								<InputPadrao
+								/> */}
+								<Time etiqueta="Início" />
+								{/* <InputPadrao
 									name="drive_hour_download_end"
 									title="Fim"
 									type="time"
-								/>
+								/> */}
+								<Time etiqueta="Fim" />
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="drive_download_cargo">
