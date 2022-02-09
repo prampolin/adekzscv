@@ -152,11 +152,11 @@ const Delivery_report = () => {
 						<ul>
 							<li>
 								<p>Estado</p>
-								<h4>Nome do Estado</h4>
+								<h4>São Paulo</h4>
 							</li>
 							<li>
-								<p>Cidade / Estado</p>
-								<h4>São José do Rio Preto/SP</h4>
+								<p>Cidade</p>
+								<h4>São José do Rio Preto</h4>
 							</li>
 							<li>
 								<p>Carga / Pedido</p>
