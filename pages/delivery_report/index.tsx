@@ -293,8 +293,8 @@ const Delivery_report = () => {
 								Horário de Chegada
 							</p>
 							<div className={style.contentRow}>
-								<Time etiqueta="Ponto de Encontro" />
-								<Time etiqueta="Granja" />
+								<Time label="Ponto de Encontro" />
+								<Time label="Granja" />
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="client_count_box">
@@ -495,23 +495,13 @@ const Delivery_report = () => {
 				{tab == 'driver' && (
 					<>
 						<div className={`${style.card} ${style.straightRight}`}>
-							{/* <InputPadrao
-								name="drive_hour_expedition"
-								title="Horário de Expedição"
-								type="time"
-							/> */}
-							<Time etiqueta="Horário de Expedição" />
+							<Time label="Horário de Expedição" />
 							<InputPadrao
 								name="drive_km_route"
 								title="Distância Percorrida em KM (do incubatório ao Cliente)"
 								type="number"
 							/>
-							{/* <InputPadrao
-								name="drive_total_time"
-								title="Tempo de viagem do incubatório até o cliente"
-								type="time"
-							/> */}
-							<Time etiqueta="Tempo de viagem do incubatório até o cliente" />
+							<Time label="Tempo de viagem do incubatório até o cliente" />
 							<div className={style.formGroup}>
 								<label htmlFor="drive_transhipment">
 									Transbordo para outro veículo?
@@ -536,18 +526,8 @@ const Delivery_report = () => {
 								Descarregamento
 							</p>
 							<div className={style.contentRow}>
-								{/* <InputPadrao
-									name="drive_hour_download_start"
-									title="Início"
-									type="time"
-								/> */}
-								<Time etiqueta="Início" />
-								{/* <InputPadrao
-									name="drive_hour_download_end"
-									title="Fim"
-									type="time"
-								/> */}
-								<Time etiqueta="Fim" />
+								<Time label="Início" />
+								<Time label="Fim" />
 							</div>
 							<div className={style.formGroup}>
 								<label htmlFor="drive_download_cargo">

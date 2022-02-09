@@ -25,28 +25,28 @@ const Home: NextPage = () => {
 					</button>
 				</a>
 			</Link> */}
-			<Link href="order/colombia">
+			<Link href="/order/colombia">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates - Comlombia
 					</button>
 				</a>
 			</Link>
-			<Link href="order/peru">
+			<Link href="/order/peru">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates - Peru
 					</button>
 				</a>
 			</Link>
-			<Link href="order/brasil_mi">
+			<Link href="/order/brasil_mi">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates - Brasil MI
 					</button>
 				</a>
 			</Link>
-			<Link href="order/brasil_me">
+			<Link href="/order/brasil_me">
 				<a>
 					<button type="button" className={style.btnPrimary}>
 						Templates - Brasil ME

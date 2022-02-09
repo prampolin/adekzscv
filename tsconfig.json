@@ -5,6 +5,7 @@
 		"baseUrl": ".",
 		"paths": {
 			"@/components/*": ["components/*"]
+			// "@/imagentleman/*": ["@imagentleman/reactjs-time-picker/*"]
 		},
 		"allowJs": true,
 		"skipLibCheck": true,

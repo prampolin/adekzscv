@@ -1,34 +1,33 @@
 @import '../../assets/sass/main'
 
 .time
-	display: block
-	width: 100%
-	margin-bottom: 0.8rem 
-	position: relative
 
-	label
+	.formGroup
 		display: block
-		font-size: 0.9rem
-		margin-bottom: 0.2rem
-		color: #0009
-
-	.formControl
-		display: flex
-		height: 2rem
 		width: 100%
-		padding: 0.1rem 0.7rem 0 0.7rem
-		border: 1px solid #0004
-		border-radius: 0.2rem
-		transition: all 0.3s ease-in-out
+		margin-bottom: 0.8rem 
+
+		label
+			display: block
+			font-size: 0.9rem
+			margin-bottom: 0.2rem
+			color: #0009
+
+		input,
+		select,
+		textarea
+			display: block
+			height: 2rem
+			width: 100%
+			padding: 0.1rem 0.7rem 0 0.7rem
+			border: 1px solid #0004
+			border-radius: 0.2rem
+			transition: all 0.3s ease-in-out
+
+			&:focus
+				border-color: #0006
+				outline-style: none
 
 		select
-			all: unset
-			margin-top: 3px
-
-		p
-			margin: 2px
-	
-	.clock
-		position: absolute
-		top: 29px
-		left: calc(100% - 24px)
+			padding-left: 0.3rem
+			padding-top: 0
